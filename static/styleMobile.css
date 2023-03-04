@@ -3,8 +3,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
 /* font-family: 'JetBrains Mono', monospace; */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+/* font-family: 'Poppins', sans-serif; */
+
 :root{
-    --dark:rgb(1, 44, 49);
+    --light:rgb(255,239,203);
+    /* --menuText:white; */
+    /* --menutext:black; */
+    --navTitle:white;
+    --navTitle:rgb(57, 57, 57);
+    --navBG:#c8a465;
 }
 
 
@@ -12,23 +21,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
-    background: rgba(133, 247, 186, 0.378);
-    height: 400vh;
+    background: var(--light);
+    height: 100vh;
 }
 body::-webkit-scrollbar {
     display: none;
 }
 
-.full {
+/* .full {
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 .center {
     top: 0;
@@ -62,7 +72,7 @@ body::-webkit-scrollbar {
     top: 40%;
     /* color: rgb(186, 186, 186); */
     font-size: 10px;
-    background: var(--dark);
+    background: var(--bg);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: flex;
@@ -87,11 +97,11 @@ body::-webkit-scrollbar {
 
 
 .nav{
-    background: var(--dark);
+    /* background: var(--navBG); */
     position: fixed;
     width: 99%;
     display: flex;
-    padding: 13px;
+    padding: 22px;
     font-family: 'JetBrains Mono', monospace;
     margin: 0.5%;
     border-radius: 8px;
@@ -104,24 +114,47 @@ body::-webkit-scrollbar {
     display: flex;
     
 }
+.menuContainer{
+    flex: 8;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: var(--menuText);
+    /* padding-right: 10px; */
+    font-family: 'Poppins', sans-serif;    
+}
+.tab{
+    /* background: #000; */
+    /* margin: 10px; */
+    /* padding: 0 10px; */
+    border-radius: 18px;
+    padding: 3px 15px;
+    font-size: 1.26rem;
+}
+.tab:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    /* background: var(--navBG); */
+    /* color: var(--light); */
+}
+
+
 .navIconContainer{
     justify-content: center;
     display: flex;
     align-items: center;
 }
 .navIcon{
-    height: 2rem;
+    height: 2.5rem;
 }
 .navTitle{
-    color: white;
+    color: var(--navTitle);
     justify-content: center;
     font-size: 2rem;
     padding-left: 10px;
     letter-spacing: 8px;
 }
-.menuContainer{
-    flex:6;
-}
+
 .profileContainer{
     flex:1;
     color: white;
@@ -133,7 +166,7 @@ body::-webkit-scrollbar {
 }
 
 .firstView{
-    background: #467676;
+    background: var(--light);
 }
 .secondView {
     background: #696868;
@@ -143,4 +176,58 @@ body::-webkit-scrollbar {
 }
 .fourthView {
     background: #e2e2e2;
+}
+
+#one{
+    /* height: 100vh; */
+    /* width: 100vw; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    
+}
+.empty{
+    height: 12vh;
+}
+.cardContainer{
+    /* position: absolute; */
+}
+.top2, .bottom2{
+    display: flex;
+}
+.cards{
+    /* padding: 50px; */
+    height: 27vh;
+    width: 46vw;
+    margin: 18px;
+    border-radius: 8px;
+    background: var(--navBG);
+}
+.loginSection{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.loginCard{
+    height: 10vh;
+    width: 25%;
+    margin: 1.9%;
+    background: var(--navBG);
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.loginButton, .signupButton{
+    background: var(--light);
+    margin: 10px;
+    border-radius: 18px;
+    padding: 10px;
+    width: 10vw;
+}
+.loginButton:hover, .signupButton:hover{
+    cursor: pointer;
+    background: #000;
+    color: white;
 }

@@ -6,21 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
+    <!-- <meta http-equiv="refresh" content="2"> -->
     <title>VITrack</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo.png') }}" />
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styleMobile.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 </head>
 <body>
 
     <div id="loader" class="center"></div>
 
     <div class="scroll">
-        <div id="one" class="one active"><i class="fa-solid fa-circle"></i></div>
+        <!-- <div id="one" class="one active"><i class="fa-solid fa-circle"></i></div>
         <div id="two" class="two"><i class="fa-solid fa-circle"></i></div>
         <div id="three" class="three"><i class="fa-solid fa-circle"></i></div>
-        <div id="four" class="four"><i class="fa-solid fa-circle"></i></div>
+        <div id="four" class="four"><i class="fa-solid fa-circle"></i></div> -->
     </div>
 
     <div class="nav">
@@ -29,19 +31,46 @@
             <div class="navTitle">VITRACK</div>
         </div>
         <div class="menuContainer">
-            <div class="cabSharing"></div>
+            <div class="tab cabShare">cab sharing</div>
+            <div class="tab drivCont">driver contacts</div>
+            <div class="tab shuttTrack">shuttle tracking</div>
+            <div class="tab cycRent">cycle rentals</div>
         </div>
-        <div class="profileContainer">
+        <!-- <div class="profileContainer">
             <i class="fa-regular fa-user"></i>
+        </div> -->
+    </div>
+    <div class="empty"></div>
+    <div id="one" class="full firstView">
+        <div class="cardContainer">
+            <div class="top2">
+                <div class="cards card1">
+                    
+                </div>
+                <div class="cards card2">
+                    
+                </div>
+            </div>
+            <div class="bottom2">
+                <div class="cards card3">
+                    
+                </div>
+                <div class="cards card4">
+
+                </div>
+            </div>
         </div>
     </div>
-
-    <div id="one" class="full firstView">
-
+    <div class="loginSection">
+        <div class="loginCard">
+            <div class="signupButton">Sign Up</div>
+            <div class="loginButton">Login</div>
+        </div>
+        
     </div>
-    <div id="two" class="full secondView"></div>
+    <!-- <div id="two" class="full secondView"></div>
     <div id="three" class="full thirdView"></div>
-    <div id="four" class="full fourthView"></div>
+    <div id="four" class="full fourthView"></div> -->
 
     <script src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
