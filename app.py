@@ -1,5 +1,5 @@
 from flask import (
-    Flask, flash, g, redirect, render_template, request, url_for
+    Flask, flash, g, redirect, render_template, request, session, url_for
 )
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -7,12 +7,16 @@ import db
 
 
 app = Flask(__name__)
+app.config.from_mapping(
+        SECRET_KEY=open('secret.txt').read()
+    )
 db.init_app(app)
 
 
 @app.route("/")
 def landing():
-    return render_template('index.html', name=None)
+    return render_template('index.html',
+                           signed_in = bool(session.get('userid', None)))
 
 
 @app.route("/signup", methods=('GET','POST'))
@@ -42,7 +46,10 @@ def signup():
         crs.execute("SELECT * FROM user ORDER BY userid DESC LIMIT 1")
         record = crs.fetchone()
         #else condition in case there was a new record added before this one could be read off the database
-        # record['password'] = password if check_password_hash(record['password'], password) else "intermediate write"
+        session['userid'] = record['userid']
+        
+        return redirect(url_for('landing'))
+        
 
     return render_template('signup.html', name=None)
 

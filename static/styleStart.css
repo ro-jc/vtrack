@@ -270,7 +270,7 @@ body::-webkit-scrollbar {
     border-radius: 8px;
 }
 .logoContainer{
-    flex:2;
+    flex:4;
     color: white;
     justify-content: start;
     padding-left: 10px;
@@ -278,7 +278,7 @@ body::-webkit-scrollbar {
     
 }
 .menuContainer{
-    flex: 8;
+    flex: 20;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -319,8 +319,8 @@ body::-webkit-scrollbar {
 }
 
 .profileContainer{
-    flex:1;
-    color: white;
+    flex: 1;
+    color: rgb(0, 0, 0);
     justify-content: center;
     text-align: end;
     padding-right: 10px;
@@ -417,4 +417,7 @@ body::-webkit-scrollbar {
     /* justify-content: center; */
     /* align-items: center; */
 
+}
+.hidden {
+    visibility: hidden;
 }
