@@ -13,15 +13,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+
+    <div id="loader" class="center"></div>
+
+    <div class="scroll">
+        <div id="one" class="one active"><i class="fa-solid fa-circle"></i></div>
+        <div id="two" class="two"><i class="fa-solid fa-circle"></i></div>
+        <div id="three" class="three"><i class="fa-solid fa-circle"></i></div>
+        <div id="four" class="four"><i class="fa-solid fa-circle"></i></div>
+    </div>
+
     <div class="nav">
-        <div class="nav1">
-            <div class="vit">VIT</div><div class="rack">RACK</div>
+        <div class="logoContainer">
+            <div class="navIconContainer"><img class="navIcon" src="{{ url_for('static', filename='images/logo.png') }}" alt=""></div>
+            <div class="navTitle">VITRACK</div>
         </div>
-        <div class="nav2">
-            <div class="greeting">Hello</div>
-            <div class="account"><i class="fa-regular fa-user"></i></div>
+        <div class="menuContainer">
+            <div class="cabSharing"></div>
+        </div>
+        <div class="profileContainer">
+            <i class="fa-regular fa-user"></i>
         </div>
     </div>
+
+    <div id="one" class="full firstView">
+
+    </div>
+    <div id="two" class="full secondView"></div>
+    <div id="three" class="full thirdView"></div>
+    <div id="four" class="full fourthView"></div>
 
     <script src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
