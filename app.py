@@ -68,8 +68,6 @@ def signup():
                              'true' else 'M') + str(record['userid'])
 
         return redirect(url_for('landing'))
-    
-    
 
     return render_template('signup.html')
 
@@ -134,8 +132,8 @@ def cab_share():
                     f"gender_filter={gender_filter} AND "
                     f"pickup_point='{pickup_point}' AND "
                     f"drop_point='{drop_point}' AND "
-                    f"vehicle={vehicle_type} AND "
-                    f"trip_date='{date}'")
+                    f"trip_date='{date}' AND "
+                    (f"vehicle={vehicle_type}" if vehicle_type else ""))
 
         records = crs.fetchall()
         for record in records:
