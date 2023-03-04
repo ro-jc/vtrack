@@ -2,6 +2,7 @@ from flask import (
     Flask, flash, g, redirect, render_template, request, session, url_for
 )
 from werkzeug.security import generate_password_hash, check_password_hash
+import functools
 
 from datetime import datetime, timedelta
 
@@ -15,10 +16,21 @@ app.config.from_mapping(
 db.init_app(app)
 
 
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(**kwargs):
+        if not session.get('userid', None):
+            return redirect(url_for('landing'))
+        return view(**kwargs)
+    return wrapped_view
+
+
 @app.route("/")
 def landing():
-    return render_template('index.html',
-                           signed_in=bool(session.get('userid', None)))
+    if session.get('userid', None):
+        return render_template('landing.html')
+    else:
+        return render_template('index.html')
 
 
 @app.route("/signup", methods=('GET', 'POST'))
@@ -89,6 +101,7 @@ def login():
 
 
 @app.route("/cabshare", methods=('GET', 'POST'))
+@login_required
 def cab_share():
     if request.method == 'POST':
         print(request.form)
@@ -96,7 +109,7 @@ def cab_share():
         drop_point = request.form['to']
 
         date_time = datetime.strptime(
-            f"{request.form['date']} {request.form['time']}", '%Y:%m:%d %H:%M')
+            f"{request.form['date']} {request.form['time']}", '%Y-%m-%d %H:%M')
 
         gender_filter = (request.form.get('genderFilter', 'off') == 'on')
 
@@ -112,15 +125,15 @@ def cab_share():
         crs.execute(f"SELECT * FROM trips WHERE "
                     f"gender_filter={gender_filter} AND "
                     "resolved!=TRUE AND "
-                    f"pickup_point={pickup_point} AND "
-                    f"drop_point={drop_point} AND "
-                    f"date={date_time.strftime('%Y:%m:%d')} AND "
+                    f"pickup_point='{pickup_point}' AND "
+                    f"drop_point='{drop_point}' AND "
+                    f"date='{date_time.strftime('%Y-%m-%d')}' AND "
                     f"vehicle={vehicle_type}")
 
         records = crs.fetchall()
         for record in records:
             record['datetime'] = datetime.strptime(
-                f"{record['date']} {record['time']}", '%Y:%m:%d %H:%M:%S')
+                f"{record['date']} {record['time']}", '%Y-%m-%d %H:%M:%S')
         records.sort(key=lambda record: abs(record['datetime']-date_time))
 
         return render_template('cabShareList.html', records=records, female=female)
