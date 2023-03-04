@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+/* font-family: 'Tilt Warp', cursive; */
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,5 +9,56 @@
 }
 
 body{
-    background: #000;
+    background: rgba(30, 192, 111, 0.356);
+}
+.nav{
+    background: rgb(1,44,49);
+    color:white;
+    /* height: 5rem; */
+}
+.nav1{
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    /* border: 2px solid white; */
+    
+}
+
+
+/* .title{
+    display: flex;
+    align-items: start;
+} */
+.vit{
+    font-size: 1.3rem;
+    letter-spacing: 8px;
+}
+.rack{
+    font-size: 1rem;
+    letter-spacing: 8px;
+}
+.nav2 {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+.greeting {
+    /* border: 2px solid white; */
+    display: flex;
+    align-items: end;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+.account{
+    /* border: 2px  solid white; */
+    margin: 0 0 15px 0;
+    height: 50px;
+    width: 50px;
+    /* border-radius: 50%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 15px;
 }
