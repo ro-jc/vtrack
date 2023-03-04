@@ -25,6 +25,10 @@ def login_required(view):
     return wrapped_view
 
 
+def is_female():
+    return session['userid'][0] == 'F'
+
+
 @app.route("/")
 def landing():
     if session.get('userid', None):
@@ -64,6 +68,8 @@ def signup():
                              'true' else 'M') + str(record['userid'])
 
         return redirect(url_for('landing'))
+    
+    
 
     return render_template('signup.html')
 
@@ -107,9 +113,10 @@ def cab_share():
         print(request.form)
         pickup_point = request.form['from']
         drop_point = request.form['to']
-
-        date_time = datetime.strptime(
-            f"{request.form['date']} {request.form['time']}", '%Y-%m-%d %H:%M')
+        date = request.form['date']
+        if 'time' in request.form:
+            date_time = datetime.strptime(
+                f"{date} {request.form['time']}", '%Y-%m-%d %H:%M')
 
         gender_filter = (request.form.get('genderFilter', 'off') == 'on')
 
@@ -123,12 +130,12 @@ def cab_share():
         database = db.get_db()
         crs = database.cursor(dictionary=True)
         crs.execute(f"SELECT * FROM trips WHERE "
-                    f"gender_filter={gender_filter} AND "
                     "resolved!=TRUE AND "
+                    f"gender_filter={gender_filter} AND "
                     f"pickup_point='{pickup_point}' AND "
                     f"drop_point='{drop_point}' AND "
-                    f"date='{date_time.strftime('%Y-%m-%d')}' AND "
-                    f"vehicle={vehicle_type}")
+                    f"vehicle={vehicle_type} AND "
+                    f"trip_date='{date}'")
 
         records = crs.fetchall()
         for record in records:
@@ -136,7 +143,11 @@ def cab_share():
                 f"{record['date']} {record['time']}", '%Y-%m-%d %H:%M:%S')
         records.sort(key=lambda record: abs(record['datetime']-date_time))
 
-        return render_template('cabShareList.html', records=records, female=female)
+        if 'time' in request.form:
+            records.sort(key=lambda record: abs(record['datetime']-date_time))
+        else:
+            records.sort(key=lambda record: record['datetime'])
 
-    female = session['userid'][0] == 'F'
-    return render_template('cabShareSearch.html', female=female)
+        return render_template('cabShareList.html', records=records, female=is_female())
+
+    return render_template('cabShareSearch.html', female=is_female())
