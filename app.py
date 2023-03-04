@@ -153,3 +153,18 @@ def cab_share():
 
     return render_template('cabShareSearch.html', pickup_points=pickup_points,
                            drop_points=drop_points, female=is_female())
+
+
+@app.route('/profile', methods=('GET', 'POST'))
+@login_required
+def profile():
+    if request.method == 'POST':
+        pass
+
+    userid = session['userid'][1:]
+    database = db.get_db()
+    crs = database.cursor(dictionary=True)
+
+    user_record = crs.execute(f"SELECT * FROM user WHERE userid={userid}")
+
+    return render_template('profile.html', user_record=user_record)
