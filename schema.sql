@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS login;
-DROP TABLE IF EXISTS trips;
-DROP TABLE IF EXISTS user;
+-- DROP TABLE IF EXISTS login;
+-- DROP TABLE IF EXISTS trips;
+-- DROP TABLE IF EXISTS user;
 
 
 CREATE TABLE login (
@@ -14,7 +14,6 @@ CREATE TABLE user (
 userid INTEGER UNSIGNED UNIQUE PRIMARY KEY,
 name varchar(50),
 female BOOLEAN,
-hostel_block char(1),
 phone_number char(10) DEFAULT NULL,
 FOREIGN KEY (userid) REFERENCES login (userid),
 );
