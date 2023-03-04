@@ -34,9 +34,9 @@
 
     <div class="scroll">
       <div id="one" class="one active"><i class="fa-solid fa-circle"></i></div>
-        <div id="two" class="two"><i class="fa-solid fa-circle"></i></div>
-        <div id="three" class="three"><i class="fa-solid fa-circle"></i></div>
-        <div id="four" class="four"><i class="fa-solid fa-circle"></i></div>
+      <div id="two" class="two"><i class="fa-solid fa-circle"></i></div>
+      <div id="three" class="three"><i class="fa-solid fa-circle"></i></div>
+      <div id="four" class="four"><i class="fa-solid fa-circle"></i></div>
     </div>
 
     <div class="nav">
@@ -61,7 +61,8 @@
               name="dropdown"
             />
             <label class="for-dropdown" for="dropdown"
-              >SERVICES<i class="fa-solid fa-arrow-down"></i></label>
+              >SERVICES<i class="fa-solid fa-arrow-down"></i
+            ></label>
             <div class="section-dropdown">
               <a href="#">Dropdown Link <i class="uil uil-arrow-right"></i></a>
               <input
@@ -89,9 +90,11 @@
         <div class="tab aboutUs">ABOUT US</div>
         <!-- <div class="tab cycRent">cycle rentals</div> -->
       </div>
-      <!-- <div class="profileContainer">
-            <i class="fa-regular fa-user"></i>
-        </div> -->
+      {% if signed_in %}
+      <div class="profileContainer">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      {% endif %}
     </div>
     <div class="empty"></div>
     <div id="one" class="full firstView">
@@ -134,7 +137,11 @@
         </div>
       </div>
     </div>
+    {% if signed_in %}
+    <div class="loginSection hidden">
+    {% else %}
     <div class="loginSection">
+    {% endif %}
       <div class="loginCard">
         <div class="signupButton">
           <a href="{{ url_for('signup') }}">Sign Up</a>

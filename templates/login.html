@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleSignup.css') }}">
+</head>
+<body>
+    <div class="inputContainer">
+        <!-- <div class="name"></div>
+        <div class="gender"></div>
+        <div class="phoneNo"></div>
+        <div class="vitMail"></div>
+        <div class="password"></div> -->
+        <form method='post'>
+            <label for="vitMail"><input type="text" name="vitMail" id="vitMail" placeholder="example@vitstudent.ac.in"></label>
+            <label for="password"><input type="text" name="password" id="password" placeholder="Password"></label>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
