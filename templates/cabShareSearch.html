@@ -11,8 +11,20 @@
       <div class="searchBox">
         <form action="" name="search" method="post">
           <div class="fromTo">
-            <label for="from"><input name="from" type="text" placeholder="from" required /></label>
-            <label for="to"><input name="to" type="text" placeholder="to" required /></label>
+            <label for="from">
+              <select id="from" name="from" form="search" required>
+                {% for point in pickup_points %}
+                  <option value="{{ point }}">{{ point }}</option>
+                {% endfor %}
+              </select>
+            </label>
+            <label for="to">
+              <select id="to" name="to" form="search" required>
+                {% for point in drop_points %}
+                  <option value="{{ point }}">{{ point }}</option>
+                {% endfor %}
+              </select>
+            </label>
           </div>
           <div class="date"><input name="date" type="date" required /></div>
           <div class="time"><input name="time" type="time" /></div>

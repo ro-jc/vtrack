@@ -127,12 +127,12 @@ def cab_share():
 
         database = db.get_db()
         crs = database.cursor(dictionary=True)
-        crs.execute(f"SELECT * FROM trips WHERE "
-                    "resolved!=TRUE AND "
-                    f"gender_filter={gender_filter} AND "
-                    f"pickup_point='{pickup_point}' AND "
-                    f"drop_point='{drop_point}' AND "
-                    f"trip_date='{date}' AND "
+        crs.execute(f"SELECT * FROM trips WHERE " +
+                    "resolved!=TRUE AND " +
+                    f"gender_filter={gender_filter} AND " +
+                    f"pickup_point='{pickup_point}' AND " +
+                    f"drop_point='{drop_point}' AND " +
+                    f"trip_date='{date}' AND " +
                     (f"vehicle={vehicle_type}" if vehicle_type else ""))
 
         records = crs.fetchall()
@@ -148,4 +148,13 @@ def cab_share():
 
         return render_template('cabShareList.html', records=records, female=is_female())
 
-    return render_template('cabShareSearch.html', female=is_female())
+    database = db.get_db()
+    crs = database.cursor(dictionary=True)
+    crs.execute('SELECT DISTINCT pickup_point FROM trips')
+    pickup_points = [i['pickup_point'].capitalize() for i in crs]
+    crs.execute('SELECT DISTINCT drop_point FROM trips')
+    drop_points = [i['drop_point'].capitalize() for i in crs]
+    print(pickup_points, drop_points)
+
+    return render_template('cabShareSearch.html', pickup_points=pickup_points,
+                           drop_points=drop_points, female=is_female())
