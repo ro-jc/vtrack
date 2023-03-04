@@ -4,25 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Share Cab</title>
   </head>
   <body>
     <div class="cardListContainer">
       <div class="searchBox">
         <form action="" name="search" method="post">
           <div class="fromTo">
-            <label for="from"><input name="" type="text" required /></label>
-            <label for="to"><input name="to" type="text" required /></label>
+            <label for="from"><input name="from" type="text" placeholder="from" required /></label>
+            <label for="to"><input name="to" type="text" placeholder="to" required /></label>
           </div>
           <div class="date"><input name="date" type="date" required /></div>
           <div class="time"><input name="time" type="time" /></div>
           <div class="vehicleType">
-            <input type="text" value="Any" name="" />
+            <input type="text" value="Any" name="vehicleType" />
           </div>
-          <div class="numPeople"><input type="range" min="2" max="8" /></div>
+          <div class="numPeople"><input name="numPeople" type="number" min="2" max="8" /></div>
+          {% if female %}
           <div class="genderFilter">
-            <input type="checkbox" name="genderFilter" />
+            <label for="genderFilter">Female:<input type="checkbox" name="genderFilter" /></label>
           </div>
+          {% endif %}
+          <input type="submit" value="Submit">
         </form>
       </div>
     </div>

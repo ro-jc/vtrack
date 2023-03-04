@@ -3,6 +3,8 @@ from flask import (
 )
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from datetime import datetime, timedelta
+
 import db
 
 
@@ -45,12 +47,13 @@ def signup():
 
         crs.execute("SELECT * FROM user ORDER BY userid DESC LIMIT 1")
         record = crs.fetchone()
-        # else condition in case there was a new record added before this one could be read off the database
-        session['userid'] = record['userid']
+        # add else condition in case there was a new record added before this one could be read off the database
+        session['userid'] = ('F' if record['female'] ==
+                             'true' else 'M') + str(record['userid'])
 
         return redirect(url_for('landing'))
 
-    return render_template('signup.html', name=None)
+    return render_template('signup.html')
 
 
 @app.route("/login", methods=('GET', 'POST'))
@@ -69,20 +72,58 @@ def login():
         '''
         if error is None:
             crs.execute(
-                f"SELECT userid,password FROM user where email='{vit_mail}'")
+                f"SELECT userid,password,female FROM user where email='{vit_mail}'")
 
         record = crs.fetchone()
         print(record['password'])
         print()
         if check_password_hash(record['password'], password):
-            session['userid'] = record['userid']
+
+            session['userid'] = ('F' if record['female'] ==
+                                 'true' else 'M') + str(record['userid'])
             return redirect(url_for('landing'))
         else:
             flash('Wrong credentials')
 
-    return render_template('login.html', name=None)
+    return render_template('login.html')
 
 
-@app.route("/cabshare")
+@app.route("/cabshare", methods=('GET', 'POST'))
 def cab_share():
-    pass
+    if request.method == 'POST':
+        print(request.form)
+        pickup_point = request.form['from']
+        drop_point = request.form['to']
+
+        date_time = datetime.strptime(
+            f"{request.form['date']} {request.form['time']}", '%Y:%m:%d %H:%M')
+
+        gender_filter = (request.form.get('genderFilter', 'off') == 'on')
+
+        vehicle_types = {
+            'any': 0,
+            'cab': 1,
+            'auto': 2
+        }
+        vehicle_type = vehicle_types.get(request.form['vehicleType'], 0)
+
+        database = db.get_db()
+        crs = database.cursor(dictionary=True)
+        crs.execute(f"SELECT * FROM trips WHERE "
+                    f"gender_filter={gender_filter} AND "
+                    "resolved!=TRUE AND "
+                    f"pickup_point={pickup_point} AND "
+                    f"drop_point={drop_point} AND "
+                    f"date={date_time.strftime('%Y:%m:%d')} AND "
+                    f"vehicle={vehicle_type}")
+
+        records = crs.fetchall()
+        for record in records:
+            record['datetime'] = datetime.strptime(
+                f"{record['date']} {record['time']}", '%Y:%m:%d %H:%M:%S')
+        records.sort(key=lambda record: abs(record['datetime']-date_time))
+
+        return render_template('cabShareList.html', records=records, female=female)
+
+    female = session['userid'][0] == 'F'
+    return render_template('cabShareSearch.html', female=female)
