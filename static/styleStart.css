@@ -16,6 +16,9 @@
     --navBG:#c8a465;
 }
 
+a{
+    text-decoration: none;
+}
 
 *{
     margin: 0;
@@ -221,6 +224,7 @@ body::-webkit-scrollbar {
 }
 .loginButton, .signupButton{
     background: var(--light);
+    color: black;
     margin: 10px;
     border-radius: 18px;
     padding: 10px;
