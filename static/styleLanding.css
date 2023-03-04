@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav {
+    background: rgba(0, 0, 0, 0.48);
+    position: fixed;
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    padding: 0 10vh;
+    font-family: 'JetBrains Mono', monospace;
+}
+.navIconContainer {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.navTitleContainer {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.navIcon {
+    height: 2.5rem;
+}
+
+.navTitle {
+    color: white;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    padding-left: 10px;
+    letter-spacing: 8px;
+}
+
+.profileContainer {
+    /* flex: 1; */
+    color: rgb(0, 0, 0);
+    justify-content: center;
+    text-align: end;
+    padding-right: 10px;
+    /* align-items: center; */
+    font-size: 2rem;
+}

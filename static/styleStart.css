@@ -188,15 +188,7 @@ body::-webkit-scrollbar {
     letter-spacing: 8px;
 }
 
-.profileContainer{
-    flex: 1;
-    color: rgb(0, 0, 0);
-    justify-content: center;
-    text-align: end;
-    padding-right: 10px;
-    /* align-items: center; */
-    font-size: 2rem;
-}
+
 
 .firstView{
     background: url('./images/firstViewBG.jpg');

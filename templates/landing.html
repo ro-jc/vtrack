@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleLanding.css') }}">
 </head>
 <body>
     <div class="nav">
@@ -16,16 +17,6 @@
           </div>
           <div class="navTitleContainer">
             <div class="navTitle">VITRACK</div>
-          </div>
-        </div>
-        <div class="menuContainer">
-          <div class="tab aboutUs">ABOUT US</div>
-          <!-- <div class="tab cycRent">cycle rentals</div> -->
-          <div class="tab signupButton">
-            <a href="{{ url_for('signup') }}">Sign Up</a>
-          </div>
-          <div class="tab loginButton">
-            <a href="{{ url_for('login') }}">Login</a>
           </div>
         </div>
         <div class="profileContainer">
