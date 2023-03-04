@@ -69,11 +69,16 @@ def login():
         flash(error)
         '''
         if error is None:
-            crs.execute("SELECT * FROM user ORDER BY userid DESC LIMIT 1")
+            crs.execute(f"SELECT userid,password FROM user where email='{vit_mail}'")
 
-        session['userid'] = crs.fetchone()['userid']
-        
-        return redirect(url_for('landing'))
+        record = crs.fetchone()
+        print(record['password'])
+        print()
+        if check_password_hash(record['password'], password):
+            session['userid'] = record['userid']
+            return redirect(url_for('landing'))
+        else:
+            flash('Wrong credentials')
     
     return render_template('login.html', name=None)
 
