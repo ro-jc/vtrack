@@ -7,9 +7,9 @@ from flask.cli import with_appcontext
 def get_db():
     if 'db' not in g:
         g.db = mysql.connector.connect(user='python')
-        g.db.cursor().execute("create database if not exists BUS")
+        g.db.cursor().execute("create database if not exists vtrack")
         g.db.commit()
-        g.db = mysql.connector.connect(user='python', database='BUS')
+        g.db = mysql.connector.connect(user='python', database='vtrack')
 
     return g.db
 
@@ -22,7 +22,7 @@ def close_db(e=None):
 def init_db():
     db = get_db()
     crs = db.cursor(dictionary=True)
-
+    
     with current_app.open_resource('schema.sql') as f:
         for q in crs.execute(f.read(), multi=True):
             pass

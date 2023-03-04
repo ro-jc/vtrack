@@ -1,18 +1,18 @@
--- DROP TABLE IF EXISTS login;
--- DROP TABLE IF EXISTS trips;
--- DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS `login`;
+DROP TABLE IF EXISTS trips;
+DROP TABLE IF EXISTS user;
 
 
-CREATE TABLE login (
+CREATE TABLE `login` (
 userid INTEGER UNSIGNED UNIQUE PRIMARY KEY AUTO_INCREMENT,
 email varchar(80),
-password TEXT NOT NULL,
+`password` TEXT NOT NULL,
 );
 
 
 CREATE TABLE user (
 userid INTEGER UNSIGNED UNIQUE PRIMARY KEY,
-name varchar(50),
+`name` varchar(50),
 female BOOLEAN,
 phone_number char(10) DEFAULT NULL,
 FOREIGN KEY (userid) REFERENCES login (userid),
