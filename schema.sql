@@ -30,5 +30,7 @@ FOREIGN KEY (user_2) REFERENCES user (userid),
 FOREIGN KEY (user_3) REFERENCES user (userid),
 FOREIGN KEY (user_4) REFERENCES user (userid),
 FOREIGN KEY (user_5) REFERENCES user (userid),
-FOREIGN KEY (user_6) REFERENCES user (userid)
+FOREIGN KEY (user_6) REFERENCES user (userid),
+FOREIGN KEY (user_7) REFERENCES user (userid),
+FOREIGN KEY (user_8) REFERENCES user (userid)
 );
