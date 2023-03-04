@@ -16,3 +16,12 @@
 body{
     background: var(--light);
 }
+form{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+input, select{
+    width: 400px;
+    margin: 20px;
+}
