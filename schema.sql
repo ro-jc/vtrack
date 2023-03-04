@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS user;
 
 CREATE TABLE user (
 userid INTEGER UNSIGNED UNIQUE PRIMARY KEY AUTO_INCREMENT,
-email varchar(80) NOT NULL, --UNIQUE,
+email varchar(80) NOT NULL UNIQUE,
 `password` TEXT NOT NULL,
 `name` varchar(50),
 female BOOLEAN,
