@@ -416,8 +416,8 @@ body::-webkit-scrollbar {
 }
 .cardImage2 {
     /* height: 22vh; */
-    width: 95%;
-    height: 22vh;
+    width: 87%;
+    height: 20vh;
 }
 .cardImage3 {
     /* height: 22vh; */
@@ -426,8 +426,8 @@ body::-webkit-scrollbar {
 }
 .cardImage4 {
     /* height: 22vh; */
-    width: 95%;
-    height: 22vh;
+    width: 82%;
+    height: 20vh;
 }
 
 .cardImageContainer{
@@ -453,4 +453,14 @@ body::-webkit-scrollbar {
 }
 .hidden {
     visibility: hidden;
+}
+.shortDesc{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 0 20px;
+}
+.lsd{
+    padding-left: 50px;
 }
