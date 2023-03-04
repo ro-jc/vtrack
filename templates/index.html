@@ -1,77 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <!-- <meta http-equiv="refresh" content="2"> -->
+    <meta http-equiv="refresh" content="3" />
     <title>VITrack</title>
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/logo.png') }}" />
-    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styleStart.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-</head>
-<body>
-
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/logo.png') }}"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="{{ url_for('static', filename='images/logo.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styleStart.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
     <div id="loader" class="center"></div>
 
     <div class="scroll">
-        <!-- <div id="one" class="one active"><i class="fa-solid fa-circle"></i></div>
+      <div id="one" class="one active"><i class="fa-solid fa-circle"></i></div>
         <div id="two" class="two"><i class="fa-solid fa-circle"></i></div>
         <div id="three" class="three"><i class="fa-solid fa-circle"></i></div>
-        <div id="four" class="four"><i class="fa-solid fa-circle"></i></div> -->
+        <div id="four" class="four"><i class="fa-solid fa-circle"></i></div>
     </div>
 
     <div class="nav">
-        <div class="logoContainer">
-            <div class="navIconContainer"><img class="navIcon" src="{{ url_for('static', filename='images/logo.png') }}" alt=""></div>
-            <div class="navTitle">VITRACK</div>
+      <div class="logoContainer">
+        <div class="navIconContainer">
+          <img
+            class="navIcon"
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt=""
+          />
         </div>
-        <div class="menuContainer">
-            <div class="tab cabShare">cab sharing</div>
-            <div class="tab drivCont">driver contacts</div>
-            <div class="tab shuttTrack">shuttle tracking</div>
-            <div class="tab cycRent">cycle rentals</div>
+        <div class="navTitle">VITRACK</div>
+      </div>
+      <div class="menuContainer">
+        <div class="tab homePage">HOME</div>
+        <div class="tab services">
+          <div class="sec-center">
+            <input
+              class="dropdown"
+              type="checkbox"
+              id="dropdown"
+              name="dropdown"
+            />
+            <label class="for-dropdown" for="dropdown"
+              >SERVICES<i class="fa-solid fa-arrow-down"></i></label>
+            <div class="section-dropdown">
+              <a href="#">Dropdown Link <i class="uil uil-arrow-right"></i></a>
+              <input
+                class="dropdown-sub"
+                type="checkbox"
+                id="dropdown-sub"
+                name="dropdown-sub"
+              />
+              <label class="for-dropdown-sub" for="dropdown-sub"
+                >Dropdown Sub <i class="uil uil-plus"></i
+              ></label>
+              <div class="section-dropdown-sub">
+                <a href="#"
+                  >Dropdown Link <i class="uil uil-arrow-right"></i
+                ></a>
+                <a href="#"
+                  >Dropdown Link <i class="uil uil-arrow-right"></i
+                ></a>
+              </div>
+              <a href="#">Dropdown Link <i class="uil uil-arrow-right"></i></a>
+              <a href="#">Dropdown Link <i class="uil uil-arrow-right"></i></a>
+            </div>
+          </div>
         </div>
-        <!-- <div class="profileContainer">
+        <div class="tab aboutUs">ABOUT US</div>
+        <!-- <div class="tab cycRent">cycle rentals</div> -->
+      </div>
+      <!-- <div class="profileContainer">
             <i class="fa-regular fa-user"></i>
         </div> -->
     </div>
     <div class="empty"></div>
     <div id="one" class="full firstView">
-        <div class="cardContainer">
-            <div class="top2">
-                <div class="cards card1">
-                    
+      <div class="cardContainer">
+        <div class="top2">
+          <div class="cards card1">
+            <div class="leftCard">
+                <div class="leftCardImageContainer">
+                    <img class="cardImage" src="{{ url_for('static', filename='images/cab sharing.png') }}" alt="">
                 </div>
-                <div class="cards card2">
-                    
+                <div class="shortDesc"></div>
+            </div>
+          </div>
+          <div class="cards card2">
+            <div class="rightCard">
+                <div class="shortDesc"></div>
+                <div class="rightCardImageContainer">
+                    <img class="cardImage" src="{{ url_for('static', filename='images/drivers pic.png') }}" alt="">
                 </div>
             </div>
-            <div class="bottom2">
-                <div class="cards card3">
-                    
-                </div>
-                <div class="cards card4">
-
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="bottom2">
+          <div class="cards card3">
+            <div class="leftCard">
+                <div class="leftCardImageContainer">
+                    <img class="cardImage" src="{{ url_for('static', filename='images/cycle pic.png') }}" alt="">
+                </div>
+                <div class="shortDesc"></div>
+            </div>
+          </div>
+          <div class="cards card4">
+            <div class="rightCard">
+                <div class="shortDesc"></div>
+                <div class="cardImageContainer">
+                    <img class="cardImage" src="{{ url_for('static', filename='images/shuttle pic.png') }}" alt="">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="loginSection">
-        <div class="loginCard">
-            <div class="signupButton"><a href="{{ url_for('signup') }}">Sign Up</a></div>
-            <div class="loginButton"><a href="{{ url_for('login') }}">Login</a></div>
+      <div class="loginCard">
+        <div class="signupButton">
+          <a href="{{ url_for('signup') }}">Sign Up</a>
         </div>
-        
+        <div class="loginButton">
+          <a href="{{ url_for('login') }}">Login</a>
+        </div>
+      </div>
     </div>
-    <!-- <div id="two" class="full secondView"></div>
+    <div id="two" class="full secondView"></div>
     <div id="three" class="full thirdView"></div>
-    <div id="four" class="full fourthView"></div> -->
+    <div id="four" class="full fourthView"></div>
 
     <script src="{{ url_for('static', filename='index.js') }}"></script>
-</body>
+  </body>
 </html>
