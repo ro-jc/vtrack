@@ -15,6 +15,7 @@ phone_number char(10) UNIQUE DEFAULT NULL
 CREATE TABLE trips (
 id INTEGER UNSIGNED UNIQUE PRIMARY KEY AUTO_INCREMENT,
 trip_date DATE,
+trip_time TIME,
 pickup_point varchar(100) NOT NULL,
 drop_point varchar(100) NOT NULL,
 vehicle TINYINT,

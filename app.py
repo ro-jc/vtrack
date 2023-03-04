@@ -91,8 +91,6 @@ def login():
                 f"SELECT userid,password,female FROM user where email='{vit_mail}'")
 
         record = crs.fetchone()
-        print(record['password'])
-        print()
         if check_password_hash(record['password'], password):
 
             session['userid'] = ('F' if record['female'] ==
@@ -108,11 +106,10 @@ def login():
 @login_required
 def cab_share():
     if request.method == 'POST':
-        print(request.form)
         pickup_point = request.form['from']
         drop_point = request.form['to']
         date = request.form['date']
-        if 'time' in request.form:
+        if request.form['time']:
             date_time = datetime.strptime(
                 f"{date} {request.form['time']}", '%Y-%m-%d %H:%M')
 
@@ -129,19 +126,18 @@ def cab_share():
         crs = database.cursor(dictionary=True)
         crs.execute(f"SELECT * FROM trips WHERE " +
                     "resolved!=TRUE AND " +
+                    (f"vehicle={vehicle_type}" if vehicle_type else "") +
                     f"gender_filter={gender_filter} AND " +
                     f"pickup_point='{pickup_point}' AND " +
                     f"drop_point='{drop_point}' AND " +
-                    f"trip_date='{date}' AND " +
-                    (f"vehicle={vehicle_type}" if vehicle_type else ""))
+                    f"trip_date='{date}'")
 
         records = crs.fetchall()
         for record in records:
             record['datetime'] = datetime.strptime(
-                f"{record['date']} {record['time']}", '%Y-%m-%d %H:%M:%S')
-        records.sort(key=lambda record: abs(record['datetime']-date_time))
+                f"{record['trip_date']} {record['trip_time']}", '%Y-%m-%d %H:%M:%S')
 
-        if 'time' in request.form:
+        if request.form['time']:
             records.sort(key=lambda record: abs(record['datetime']-date_time))
         else:
             records.sort(key=lambda record: record['datetime'])
@@ -154,7 +150,6 @@ def cab_share():
     pickup_points = [i['pickup_point'].capitalize() for i in crs]
     crs.execute('SELECT DISTINCT drop_point FROM trips')
     drop_points = [i['drop_point'].capitalize() for i in crs]
-    print(pickup_points, drop_points)
 
     return render_template('cabShareSearch.html', pickup_points=pickup_points,
                            drop_points=drop_points, female=is_female())

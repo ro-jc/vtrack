@@ -10,11 +10,11 @@
     <div class="cardListContainer">
         <div class="card">
         {% for record in records %}
-            {{ record.date }}
-            {{ record.time }}
+            <p>{{ record.trip_date }}</p>
+            {{ record.trip_time }}
             {{ record.vehicle }}
             {{ record.pickup_point }}
-            {{ record.date }}
+            {{ record.drop_point }}
             {{ record.num_people }}
             {% if female %}
                 {{ record.gender_filter }}
