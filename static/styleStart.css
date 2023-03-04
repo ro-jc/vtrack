@@ -224,14 +224,20 @@ body::-webkit-scrollbar {
 }
 .loginButton, .signupButton{
     background: var(--light);
-    color: black;
     margin: 10px;
     border-radius: 18px;
     padding: 10px;
     width: 10vw;
 }
-.loginButton:hover, .signupButton:hover{
+.loginButton a,
+.signupButton a {
+    color: black;
+}
+.loginButton:hover , .signupButton:hover {
     cursor: pointer;
     background: #000;
+}
+.loginButton:hover a,
+.signupButton:hover a {
     color: white;
 }

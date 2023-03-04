@@ -14,5 +14,5 @@
 }
 
 body{
-    background: var(light);
+    background: var(--light);
 }
