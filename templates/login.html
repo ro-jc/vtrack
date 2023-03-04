@@ -5,9 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styleSignup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleLogin.css') }}">
 </head>
 <body>
+     <div class="nav">
+        <div class="logoContainer">
+          <div class="navIconContainer">
+            <img
+              class="navIcon"
+              src="{{ url_for('static', filename='images/logo.png') }}"
+              alt=""
+            />
+          </div>
+          <div class="navTitleContainer">
+            <div class="navTitle">VITRACK</div>
+          </div>
+        </div>
+        
+      </div>
     <div class="loginError">
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -20,15 +35,11 @@
         {% endwith %}
     </div>
     <div class="inputContainer">
-        <!-- <div class="name"></div>
-        <div class="gender"></div>
-        <div class="phoneNo"></div>
-        <div class="vitMail"></div>
-        <div class="password"></div> -->
+        <div>LOGIN...</div>
         <form method='post'>
             <label for="vitMail"><input type="text" name="vitMail" id="vitMail" placeholder="example@vitstudent.ac.in"></label>
             <label for="password"><input type="text" name="password" id="password" placeholder="Password"></label>
-            <input type="submit" value="Submit">
+            <label for="sumbit"><input type="submit" value="Submit"></label>
         </form>
     </div>
 </body>

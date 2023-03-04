@@ -1,31 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styleSignup.css') }}">
-</head>
-<body>
-    <div class="inputContainer">
-        <form method='post'>
-            <label for="name">
-                <input type="text" name="name" id="name" placeholder="Name" required>
-            </label>
-            <label for="gender">
-                <input type="text" name="gender" id="gender" list="genders">
-            </label>
-            <datalist id="genders">
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-            </datalist>
-            <label for="phoneNo"><input type="text" name="phoneNo" id="phoneNo" placeholder="Phone number"></label>
-            <label for="vitMail"><input type="text" name="vitMail" id="vitMail" placeholder="example@vitstudent.ac.in"></label>
-            <label for="password"><input type="text" name="password" id="password" placeholder="Password"></label>
-            <label for="submit"><input type="submit" value="Submit"></label>
-        </form>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styleSignup.css') }}"
+    />
+  </head>
+  <body>
+    <div class="nav">
+      <div class="logoContainer">
+        <div class="navIconContainer">
+          <img
+            class="navIcon"
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt=""
+          />
+        </div>
+        <div class="navTitleContainer">
+          <div class="navTitle">VITRACK</div>
+        </div>
+      </div>
     </div>
-</body>
+    <div class="inputContainer">
+      <div>REGISTER...</div>
+      <form method="post" id="signup">
+        <label for="name">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name"
+            required
+          />
+        </label>
+        <label for="genders">
+          <select name="gender" id="gender" form="signup">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label for="phoneNo"
+          ><input
+            type="text"
+            name="phoneNo"
+            id="phoneNo"
+            placeholder="Phone number"
+        /></label>
+        <label for="vitMail"
+          ><input
+            type="text"
+            name="vitMail"
+            id="vitMail"
+            placeholder="example@vitstudent.ac.in"
+        /></label>
+        <label for="password"
+          ><input
+            type="text"
+            name="password"
+            id="password"
+            placeholder="Password"
+        /></label>
+        <label for="submit"><input type="submit" value="Submit" /></label>
+      </form>
+    </div>
+  </body>
 </html>

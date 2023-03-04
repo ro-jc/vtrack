@@ -7,10 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 /* font-family: 'Poppins', sans-serif; */
 
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -23,33 +23,38 @@
     --navBG: #c8a465;
 }
 
-body{
+body {
     background: var(--light);
     /* height: 100vh; */
     overflow-y: hidden !important;
 }
+
 body::-webkit-scrollbar {
     display: none;
 }
-form{
+
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     margin: 20px;
 }
-input, select{
+
+input,
+select {
     width: 30vw;
     margin: 5px;
     padding: 5px;
     font-size: 1.1rem;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     margin-top: 4vh;
     width: 12vw;
 }
-.inputContainer{
+
+.inputContainer {
     /* display: flex; */
     /* justify-content: center; */
     background: rgba(0, 0, 0, 0.48);
@@ -57,7 +62,8 @@ input[type="submit"]{
     padding: 5vh 0;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.inputContainer div{
+
+.inputContainer div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,6 +84,7 @@ input[type="submit"]{
     /* margin: 0.5%; */
     /* border-radius: 8px; */
 }
+
 .logoContainer {
     flex: 4;
     color: white;
