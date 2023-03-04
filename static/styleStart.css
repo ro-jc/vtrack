@@ -320,7 +320,7 @@ body::-webkit-scrollbar {
 
 .profileContainer{
     flex:1;
-    color: white;
+    color: rgb(0, 0, 0);
     justify-content: center;
     text-align: end;
     padding-right: 10px;
@@ -409,12 +409,42 @@ body::-webkit-scrollbar {
 .leftCard {
     display: grid;
     grid-template-columns: 40% 60%;}
-.cardImage{
+.cardImage1{
+    /* height: 22vh; */
+    width: 95%;
     height: 22vh;
 }
+.cardImage2 {
+    /* height: 22vh; */
+    width: 95%;
+    height: 22vh;
+}
+.cardImage3 {
+    /* height: 22vh; */
+    width: 95%;
+    height: 22vh;
+}
+.cardImage4 {
+    /* height: 22vh; */
+    width: 95%;
+    height: 22vh;
+}
+
 .cardImageContainer{
     display: flex;
+    
     /* justify-content: center; */
     /* align-items: center; */
-
+}
+.rightCardImageContainer{
+    height: 27vh;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+.leftCardImageContainer {
+    height: 27vh;
+    display: flex;
+    justify-content: end;
+    align-items: end;
 }
