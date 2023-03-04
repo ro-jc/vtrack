@@ -43,7 +43,7 @@ window.onscroll = function () {
     five.classList.remove("active");
     mybutton.style.display = "block";
     creator.style.bottom = "100px";
-  } else if (window.scrollY > wh3) {
+  } else if (window.scrollY > wh3 && window.scrollY < wh4) {
     four.classList.add("active");
     one.classList.remove("active");
     two.classList.remove("active");

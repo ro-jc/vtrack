@@ -130,10 +130,50 @@
     <div class="loginSection">
     {% endif %} -->
     </div>
-    <div id="two" class="full secondView"></div>
-    <div id="three" class="full thirdView"></div>
-    <div id="four" class="full fourthView"></div>
-    <div id="five" class="full fifthView"></div>
+    <div id="two" class="full secondView">
+        <div class="secImg">
+            <img class="cabShareImg" src="{{ url_for('static', filename='images/cabShare.png') }}" alt="">
+        </div>
+        <div class="secTxt">
+            <div class="secTxtTitle">Cab Sharing</div>
+            <div class="secTxtDesc">
+                Tired of the endless messages on WhatsApp looking for a travel mate?  Look no further! VITrack connects you to the right people at the right time.
+            </div>
+        </div>
+    </div>
+    <div id="three" class="full thirdView">
+        <div class="secTxt">
+            <div class="secTxtTitle">Driver Contacts</div>
+            <div class="secTxtDesc">
+                Looking for a trustworthy ride? Don’t worry, we’ve got you covered! With our reliable auto and cab drivers, have a safe and stress-free journey.
+            </div>
+        </div>
+        <div class="secImg">
+            <img class="drivContImg" src="{{ url_for('static', filename='images/drivers.png') }}" alt="">
+        </div>
+    </div>
+    <div id="four" class="full fourthView">
+        <div class="secImg">
+            <img class="shuttImg" src="{{ url_for('static', filename='images/shuttle.png') }}" alt="">
+        </div>
+        <div class="shuttTxt secTxt">
+            <div class="secTxtTitle">Shuttle Tracking</div>
+            <div class="secTxtDesc">
+                We’re all tired of waiting for shuttles that never arrive. VITians, your wait ends here. Our shuttle tracking system brings you the location of the nearest ride simply at the click of a button.
+            </div>
+        </div>
+    </div>
+    <div id="five" class="full fifthView">
+        <div class="secTxt">
+            <div class="secTxtTitle">Cycle Rental</div>
+            <div class="secTxtDesc">
+                From SJT to SMV to PRP, walking all over campus can definitely be exhausting .  Make in-campus transits a whole lot easier by renting out cycles at just ₹10/hour!
+            </div>
+        </div>
+        <div class="secImg">
+            <img class="cycImg"  src="{{ url_for('static', filename='images/cycle.png') }}" alt="">
+        </div>
+    </div>
 
     <script src="{{ url_for('static', filename='index.js') }}"></script>
   </body>
