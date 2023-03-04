@@ -19,4 +19,4 @@ def signup():
 
 @app.route("/login")
 def login():
-    pass
+    return render_template('login.html', name=None)
