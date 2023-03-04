@@ -56,6 +56,25 @@ def signup():
 
 @app.route("/login", methods=('GET','POST'))
 def login():
+    if request.method == 'POST':
+        vit_mail = request.form['vitMail']
+        password = request.form['password']
+        
+        database = db.get_db()
+        crs = database.cursor(dictionary=True)
+        error = None
+        '''
+        if x is None:
+            error = 'blah blah blah'
+        flash(error)
+        '''
+        if error is None:
+            crs.execute("SELECT * FROM user ORDER BY userid DESC LIMIT 1")
+
+        session['userid'] = crs.fetchone()['userid']
+        
+        return redirect(url_for('landing'))
+    
     return render_template('login.html', name=None)
 
 
