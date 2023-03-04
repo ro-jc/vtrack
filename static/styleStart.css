@@ -367,17 +367,58 @@ body::-webkit-scrollbar {
     font-size: 2rem;
 }
 .secondView {
-    background: url('./images/sec5.png');
+    background: url('./images/sec1.png');
     background-size: cover;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 .thirdView {
-    background: #b2b0b0;
+    background: url('./images/sec2.png');
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 .fourthView {
-    background: #e2e2e2;
+    background: url('./images/sec3.png');
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 .fifthView {
-    background: #575555;
+    background: url('./images/sec4.png');
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.secImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cycImg, .cabShareImg, .drivContImg{
+    height: 40vh;
+}
+.shuttImg{
+    height: 40vh;
+    /* display: none; */
+}
+.secTxt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.shuttTxt{
+    padding-right: 90px;
+}
+.secTxtTitle{
+    font-size: 5rem;
+    font-weight: bold;
+}
+.secTxtDesc{
+    font-size: 2rem;
+    padding: 4vh 10vh;
 }
 
 .empty{
