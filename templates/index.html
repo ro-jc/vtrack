@@ -40,65 +40,45 @@
     </div>
 
     <div class="nav">
-      <div class="logoContainer">
-        <div class="navIconContainer">
-          <img
-            class="navIcon"
-            src="{{ url_for('static', filename='images/logo.png') }}"
-            alt=""
-          />
-        </div>
-        <div class="navTitle">VITRACK</div>
-      </div>
-      <div class="menuContainer">
-        <div class="tab homePage">HOME</div>
-        <div class="tab services">
-          <div class="sec-center">
-            <input
-              class="dropdown"
-              type="checkbox"
-              id="dropdown"
-              name="dropdown"
+        <div class="logoContainer">
+          <div class="navIconContainer">
+            <img
+              class="navIcon"
+              src="{{ url_for('static', filename='images/logo.png') }}"
+              alt=""
             />
-            <label class="for-dropdown" for="dropdown"
-              >SERVICES<i class="fa-solid fa-arrow-down"></i
-            ></label>
-            <div class="section-dropdown">
-              <a href="#">Dropdown Link <i class="uil uil-arrow-right"></i></a>
-              <input
-                class="dropdown-sub"
-                type="checkbox"
-                id="dropdown-sub"
-                name="dropdown-sub"
-              />
-              <label class="for-dropdown-sub" for="dropdown-sub"
-                >Dropdown Sub <i class="uil uil-plus"></i
-              ></label>
-              <div class="section-dropdown-sub">
-                <a href="#"
-                  >Dropdown Link <i class="uil uil-arrow-right"></i
-                ></a>
-                <a href="#"
-                  >Dropdown Link <i class="uil uil-arrow-right"></i
-                ></a>
-              </div>
-              <a href="#">Dropdown Link <i class="uil uil-arrow-right"></i></a>
-              <a href="#">Dropdown Link <i class="uil uil-arrow-right"></i></a>
-            </div>
+          </div>
+          <div class="navTitleContainer">
+            <div class="navTitle">VITRACK</div>
           </div>
         </div>
-        <div class="tab aboutUs">ABOUT US</div>
-        <!-- <div class="tab cycRent">cycle rentals</div> -->
+        <div class="menuContainer">
+          <!-- <div class="tab homePage">HOME</div> -->
+          <div class="tab aboutUs">ABOUT US</div>
+          <!-- <div class="tab cycRent">cycle rentals</div> -->
+          <div class="tab signupButton">
+            <a href="{{ url_for('signup') }}">Sign Up</a>
+          </div>
+          <div class="tab loginButton">
+            <a href="{{ url_for('login') }}">Login</a>
+          </div>
+        </div>
+        {% if signed_in %}
+        <div class="profileContainer">
+          <i class="fa-regular fa-user"></i>
+        </div>
+        {% endif %}
       </div>
-      {% if signed_in %}
-      <div class="profileContainer">
-        <i class="fa-regular fa-user"></i>
-      </div>
-      {% endif %}
-    </div>
+
     <div class="empty"></div>
     <div id="one" class="full firstView">
-      <div class="cardContainer">
+      
+      <div class="startText">
+        <p class="welcomeText">Welcome To VITRACK</p>
+        <p class="tagline">The One-Step Solution to all your Travel Problems</p>
+      </div>
+      
+      <!-- <div class="cardContainer">
         <div class="top2">
           <div class="cards card1">
             <div class="leftCard">
@@ -145,21 +125,14 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div> -->
+
+      <!-- </div>
     {% if signed_in %}
     <div class="loginSection hidden">
     {% else %}
     <div class="loginSection">
-    {% endif %}
-      <div class="loginCard">
-        <div class="signupButton">
-          <a href="{{ url_for('signup') }}">Sign Up</a>
-        </div>
-        <div class="loginButton">
-          <a href="{{ url_for('login') }}">Login</a>
-        </div>
-      </div>
+    {% endif %} -->
     </div>
     <div id="two" class="full secondView"></div>
     <div id="three" class="full thirdView"></div>

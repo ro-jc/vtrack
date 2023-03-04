@@ -28,7 +28,7 @@ a{
 }
 
 body{
-    background: var(--light);
+    /* background: var(--light); */
     height: 100vh;
 }
 body::-webkit-scrollbar {
@@ -40,7 +40,7 @@ body::-webkit-scrollbar {
     width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .center {
@@ -52,9 +52,9 @@ body::-webkit-scrollbar {
     position: absolute;
 }
 #loader {
-    border-top: 16px solid rgba(0, 255, 110, 0.857);
-    border-right: 16px solid green;
-    border-bottom: 16px solid rgba(0, 255, 26, 0.654);
+    border-top: 16px solid rgba(120, 40, 0, 0.857);
+    border-right: 16px solid rgb(189, 120, 0);
+    border-bottom: 16px solid rgba(107, 70, 1, 0.654);
     border-radius: 50%;
     width: 200px;
     height: 200px;
@@ -260,14 +260,23 @@ body::-webkit-scrollbar {
 }
 
 .nav{
-    /* background: var(--navBG); */
+    background: rgba(0, 0, 0, 0.48);
     position: fixed;
-    width: 99%;
+    width: 100%;
+    height: 8vh;
     display: flex;
-    padding: 22px;
+    padding: 0 10vh;
     font-family: 'JetBrains Mono', monospace;
-    margin: 0.5%;
-    border-radius: 8px;
+    /* margin: 0.5%; */
+    /* border-radius: 8px; */
+}
+.banner{
+    /* background: url("{{ url_for('static', filename='images/cab sharing.png') }}"); */
+    /* background: url('./images/startBanner.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 20vh;
+    width: 100vw; */
 }
 .logoContainer{
     flex:4;
@@ -282,7 +291,7 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: end;
     align-items: center;
-    color: var(--menuText);
+    color: white;
     /* padding-right: 10px; */
     font-family: 'Poppins', sans-serif;    
 }
@@ -291,8 +300,8 @@ body::-webkit-scrollbar {
     /* margin: 10px; */
     /* padding: 0 10px; */
     border-radius: 18px;
-    padding: 3px 15px;
-    font-size: 1.26rem;
+    padding: 3px 0 3px 30px;
+    font-size: 1.3rem;
 }
 .tab:hover{
     cursor: pointer;
@@ -307,12 +316,19 @@ body::-webkit-scrollbar {
     display: flex;
     align-items: center;
 }
+.navTitleContainer {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
 .navIcon{
     height: 2.5rem;
 }
 .navTitle{
-    color: var(--navTitle);
+    color: white;
     justify-content: center;
+    align-items: center;
+
     font-size: 2rem;
     padding-left: 10px;
     letter-spacing: 8px;
@@ -329,8 +345,25 @@ body::-webkit-scrollbar {
 }
 
 .firstView{
-    background: var(--light);
-    height: 70vh;
+    background: url('./images/firstViewBG.jpg');
+    width: 100vw;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.startText{
+    color: white;
+    background: #00000034;
+    padding: 20px 0;
+}
+.welcomeText{
+    font-size: 5rem;
+}
+.tagline{
+    font-size: 2rem;
 }
 .secondView {
     background: #696868;
@@ -342,16 +375,8 @@ body::-webkit-scrollbar {
     background: #e2e2e2;
 }
 
-#one{
-    /* height: 100vh; */
-    /* width: 100vw; */
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    
-}
 .empty{
-    height: 12vh;
+    /* height: 10vh; */
 }
 .cardContainer{
     /* position: absolute; */
@@ -367,16 +392,12 @@ body::-webkit-scrollbar {
     border-radius: 8px;
     background: var(--navBG);
 }
-.loginSection{
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
+
 .loginCard{
-    height: 10vh;
-    width: 25%;
-    margin: 1.9%;
-    background: var(--navBG);
+    /* height: 10vh; */
+    /* width: 25%; */
+    /* margin: 1.9%; */
+    /* background: var(--navBG); */
     border-radius: 18px;
     display: flex;
     justify-content: center;
@@ -384,24 +405,24 @@ body::-webkit-scrollbar {
     text-align: center;
 }
 .loginButton, .signupButton{
-    background: var(--light);
-    margin: 10px;
-    border-radius: 18px;
-    padding: 10px;
-    width: 10vw;
+    /* background: var(--navBG); */
+    /* margin: 10px; */
+    /* border-radius: 18px; */
+    /* padding: 10px; */
+    /* width: 10vw; */
 }
 .loginButton a,
 .signupButton a {
-    color: black;
+    color: white;
 }
-.loginButton:hover , .signupButton:hover {
+/* .loginButton:hover , .signupButton:hover {
     cursor: pointer;
     background: #000;
 }
 .loginButton:hover a,
 .signupButton:hover a {
     color: white;
-}
+} */
 .rightCard{
     display: grid;
     grid-template-columns: 60% 40%;
