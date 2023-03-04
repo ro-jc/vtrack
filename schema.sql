@@ -1,12 +1,11 @@
-DROP TABLE IF EXISTS `login`;
 DROP TABLE IF EXISTS trips;
 DROP TABLE IF EXISTS user;
-
+DROP TABLE IF EXISTS `login`;
 
 CREATE TABLE `login` (
 userid INTEGER UNSIGNED UNIQUE PRIMARY KEY AUTO_INCREMENT,
 email varchar(80),
-`password` TEXT NOT NULL,
+`password` TEXT NOT NULL
 );
 
 
@@ -15,7 +14,7 @@ userid INTEGER UNSIGNED UNIQUE PRIMARY KEY,
 `name` varchar(50),
 female BOOLEAN,
 phone_number char(10) DEFAULT NULL,
-FOREIGN KEY (userid) REFERENCES login (userid),
+FOREIGN KEY (userid) REFERENCES login (userid)
 );
 
 
@@ -35,7 +34,7 @@ vehicle TINYINT,
 FOREIGN KEY (user_1) REFERENCES user (userid),
 FOREIGN KEY (user_2) REFERENCES user (userid),
 FOREIGN KEY (user_3) REFERENCES user (userid),
-FOREIGN KEY (user_4) REFERENCES user (userid)
+FOREIGN KEY (user_4) REFERENCES user (userid),
 FOREIGN KEY (user_5) REFERENCES user (userid),
 FOREIGN KEY (user_6) REFERENCES user (userid)
 );

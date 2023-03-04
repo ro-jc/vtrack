@@ -1,11 +1,11 @@
 from flask import (
     Flask, flash, g, redirect, render_template, request, url_for
 )
-# import db
+import db
 
 
 app = Flask(__name__)
-# db.init_app(app)
+db.init_app(app)
 
 
 @app.route("/")

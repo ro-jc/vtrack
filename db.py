@@ -24,7 +24,10 @@ def init_db():
     crs = db.cursor(dictionary=True)
     
     with current_app.open_resource('schema.sql') as f:
-        for q in crs.execute(f.read(), multi=True):
+        try:
+            for _ in crs.execute(f.read(), multi=True):
+                pass
+        except RuntimeError:
             pass
         db.commit()
 
