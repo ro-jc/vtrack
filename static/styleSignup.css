@@ -15,7 +15,8 @@
 
 body{
     background: var(--light);
-    height: 100vh;
+    /* height: 100vh; */
+    overflow-y: hidden !important;
 }
 body::-webkit-scrollbar {
     display: none;
@@ -23,15 +24,26 @@ body::-webkit-scrollbar {
 form{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
     margin: 20px;
 }
 input, select{
     width: 400px;
-    margin: 20px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+.input{
+    background: #000;
+}
+input[type="submit"]{
+    margin-top: 5vh;
 }
 .inputContainer{
     /* display: flex; */
     /* justify-content: center; */
-    background: var(--navBG);
-    margin: 20vh 30%;
+    background: #0000008f;
+    margin: 10vh 30%;
+    padding: 10vh 0;
 }
