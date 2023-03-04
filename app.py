@@ -13,10 +13,16 @@ def landing():
     return render_template('index.html', name=None)
 
 
-@app.route("/signup")
+@app.route("/signup", methods=('GET','POST'))
 def signup():
     return render_template('signup.html', name=None)
 
-@app.route("/login")
+
+@app.route("/login", methods=('GET','POST'))
 def login():
     return render_template('login.html', name=None)
+
+
+@app.route("/cabshare")
+def cab_share():
+    pass
