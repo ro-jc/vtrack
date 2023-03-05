@@ -204,8 +204,8 @@ body::-webkit-scrollbar {
     text-align: center;
 }
 .startText{
-    color: white;
-    background: #00000034;
+    color: rgb(0, 0, 0);
+    background: #e3e3e35c;
     padding: 20px 0;
 }
 .welcomeText{
@@ -213,6 +213,7 @@ body::-webkit-scrollbar {
 }
 .tagline{
     font-size: 2rem;
+    font-weight: bold;
 }
 .secondView {
     background: url('./images/sec1.png');

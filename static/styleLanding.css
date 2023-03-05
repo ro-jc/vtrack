@@ -16,7 +16,7 @@ a{
     align-items: center;
 }
 body{
-    background: url('./images/landingBG.jpg');
+    background: url('./images/loginBG.jpg');
     background-size: cover;
 }
 .nav {
