@@ -61,7 +61,8 @@ def signup():
         crs.execute("SELECT * FROM user ORDER BY userid DESC LIMIT 1")
         record = crs.fetchone()
         # add else condition in case there was a new record added before this one could be read off the database
-        session["userid"] = ("F" if record["female"] else "M") + str(record["userid"])
+        session["userid"] = ("F" if record["female"]
+                             else "M") + str(record["userid"])
 
         return redirect(url_for("landing"))
 
@@ -136,7 +137,8 @@ def cab_share():
             )
 
         if request.form["time"]:
-            records.sort(key=lambda record: abs(record["datetime"] - date_time))
+            records.sort(key=lambda record: abs(
+                record["datetime"] - date_time))
         else:
             records.sort(key=lambda record: record["datetime"])
 
@@ -144,17 +146,16 @@ def cab_share():
 
     database = db.get_db()
     crs = database.cursor(dictionary=True)
-    crs.execute("SELECT DISTINCT pickup_point FROM trips")
-    pickup_points = [i["pickup_point"].capitalize() for i in crs]
-    crs.execute("SELECT DISTINCT drop_point FROM trips")
-    drop_points = [i["drop_point"].capitalize() for i in crs]
-    print(session["userid"])
-    return render_template(
-        "cabShareSearch.html",
-        pickup_points=pickup_points,
-        drop_points=drop_points,
-        female=is_female(),
-    )
+    crs.execute('SELECT * FROM trips WHERE NOT resolved')
+    records = [record for record in crs]
+
+    pickup_points = set([record['pickup_point'].capitalize()
+                        for record in records])
+    drop_points = set([record['drop_point'].capitalize()
+                      for record in records])
+
+    return render_template('cabShareSearch.html', records=records, pickup_points=pickup_points,
+                           drop_points=drop_points, female=is_female())
 
 
 @app.route("/profile", methods=("GET", "POST"))

@@ -39,3 +39,13 @@ FOREIGN KEY (user_6) REFERENCES user (userid),
 FOREIGN KEY (user_7) REFERENCES user (userid),
 FOREIGN KEY (user_8) REFERENCES user (userid)
 );
+
+
+CREATE TABLE drivers (
+    id INTEGER UNSIGNED UNIQUE PRIMARY KEY AUTO_INCREMENT,
+    `name` varchar(50) NOT NULL,
+    phone_number char(10),
+    vehicle_type varchar(10),
+    vehicle_model varchar(30),
+    registration_number varchar(10),
+)
