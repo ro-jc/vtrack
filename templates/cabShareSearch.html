@@ -33,20 +33,10 @@
       <div class="searchBox">
         <form id="search" name="search" method="post">
           <div class="fromTo">
-            <label for="from">
-              <select id="from" name="from" form="search" required>
-                {% for point in pickup_points %}
-                  <option value="{{ point }}">{{ point }}</option>
-                {% endfor %}
-              </select>
-            </label>
-            <label for="to">
-              <select id="to" name="to" form="search" required>
-                {% for point in drop_points %}
-                  <option value="{{ point }}">{{ point }}</option>
-                {% endfor %}
-              </select>
-            </label>
+            <label for="from"></label>
+              <input type="text" list="from_data" id="from" name="from" form="search" required></input>
+            <label for="to"></label>
+              <input type="text" list="to_data" id="to" name="to" form="search" required></input>
           </div>
           <div class="date"><input name="date" type="date" required /></div>
           <div class="time"><input name="time" type="time" /></div>
@@ -59,6 +49,16 @@
             <label for="genderFilter">Female:<input type="checkbox" name="genderFilter" /></label>
           </div>
           {% endif %}
+          <datalist id="from_data">
+            {% for location in locations %}
+              <option value="{{ location }}">{{ location }}</option>
+            {% endfor %}
+          </datalist>
+          <datalist id="to_data">
+            {% for location in locations %}
+              <option value="{{ location }}">{{ location }}</option>
+            {% endfor %}
+          </datalist>
           <input type="submit" value="Submit">
         </form>
       </div>
