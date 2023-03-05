@@ -103,7 +103,15 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/cabshare", methods=("GET", "POST"))
+@app.route("/logout")
+@login_required
+def logout():
+    session.clear()
+
+    return redirect(url_for('landing'))
+
+
+@app.route("/cabShare", methods=("GET", "POST"))
 @login_required
 def cab_share():
     if request.method == "POST":
@@ -187,6 +195,7 @@ def profile():
     user_record = crs.execute(f"SELECT * FROM user WHERE userid={userid}")
 
     return render_template("profile.html", user_record=user_record)
+
 
 @app.route("/driverDetails")
 def driver_details():
