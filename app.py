@@ -115,6 +115,8 @@ def logout():
 @login_required
 def cab_share():
     if request.method == "POST":
+        print(request.form)
+
         pickup_point = request.form["from"]
         drop_point = request.form["to"]
         date = request.form["date"]
@@ -143,7 +145,7 @@ def cab_share():
             f"SELECT * FROM trips WHERE "
             + "resolved!=TRUE AND "
 
-            + (f"vehicle={vehicle_type} OR vehicle=0" if vehicle_type else "")
+            + (f"vehicle={vehicle_type} OR vehicle=0 AND " if vehicle_type else "")
             + f"gender_filter={gender_filter} AND "
             + f"pickup_point='{pickup_point}' AND "
             + f"drop_point='{drop_point}' AND "
