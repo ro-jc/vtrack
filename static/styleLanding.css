@@ -66,6 +66,9 @@ body{
     align-items: center;
     font-size: 2rem;
 }
+i{
+    color: white;
+}
 .logoContainer{
     display: flex;
     flex:9;
