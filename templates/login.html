@@ -9,6 +9,7 @@
 </head>
 <body>
      <div class="nav">
+      <a href="{{ url_for('landing') }}">
         <div class="logoContainer">
           <div class="navIconContainer">
             <img
@@ -21,6 +22,8 @@
             <div class="navTitle">VITRACK</div>
           </div>
         </div>
+      </a>
+        
         
       </div>
     <div class="loginError">
@@ -35,7 +38,7 @@
         {% endwith %}
     </div>
     <div class="inputContainer">
-        <div>LOGIN...</div>
+        <div>LOGIN</div>
         <form method='post'>
             <label for="vitMail"><input type="text" name="vitMail" id="vitMail" placeholder="example@vitstudent.ac.in"></label>
             <label for="password"><input type="text" name="password" id="password" placeholder="Password"></label>

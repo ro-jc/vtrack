@@ -227,6 +227,12 @@ select{
     align-items: center;
     border-radius: 50%;
 }
+a{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .myRequests{
     height: 38vh;
     width: 100%;

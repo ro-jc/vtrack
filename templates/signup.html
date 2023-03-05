@@ -11,8 +11,10 @@
     />
   </head>
   <body>
+    
     <div class="nav">
-      <div class="logoContainer">
+      <a href="{{ url_for('landing') }}">
+        <div class="logoContainer">
         <div class="navIconContainer">
           <img
             class="navIcon"
@@ -24,9 +26,11 @@
           <div class="navTitle">VITRACK</div>
         </div>
       </div>
+      </a>
+      
     </div>
     <div class="inputContainer">
-      <div>REGISTER...</div>
+      <div>REGISTER</div>
       <form method="post" id="signup">
         <label for="name">
           <input

@@ -24,9 +24,10 @@
 }
 
 body{
-    background: var(--light);
+    background: url('./images/loginBG.jpg');
+    background-size: cover;
     /* height: 100vh; */
-    overflow-y: hidden !important;
+    /* overflow-y: hidden !important; */
 }
 body::-webkit-scrollbar {
     display: none;
@@ -40,11 +41,16 @@ form{
 }
 input, select{
     width: 30vw;
-    margin: 5px;
+    margin: 10px;
     padding: 5px;
     font-size: 1.1rem;
 }
-
+a{
+    text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
 input[type="submit"]{
     margin-top: 4vh;
     width: 12vw;
