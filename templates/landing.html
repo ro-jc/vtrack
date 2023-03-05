@@ -1,27 +1,83 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>title</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styleLanding.css') }}">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styleLanding.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="empty"></div>
     <div class="nav">
-        <div class="logoContainer">
-          <div class="navIconContainer">
-            <img
-              class="navIcon"
-              src="{{ url_for('static', filename='images/logo.png') }}"
-              alt=""
-            />
-          </div>
-          <div class="navTitleContainer">
-            <div class="navTitle">VITRACK</div>
-          </div>
+      <div class="logoContainer">
+        <div class="navIconContainer">
+          <img
+            class="navIcon"
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt=""
+          />
         </div>
-        <div class="profileContainer">
-            <i class="fa-regular fa-user"></i>
+        <div class="navTitleContainer">
+          <div class="navTitle">VITRACK</div>
         </div>
       </div>
-</body>
+      <div class="profileContainer">
+        <i class="fa-regular fa-user"></i>
+      </div>
+    </div>
+    <div class="cardContainer">
+      <a href="{{ url_for('cab_share') }}">
+        <div class="cards card1">
+            <div class="CardImageContainer">
+            <img
+                class="cardImage1"
+                src="{{ url_for('static', filename='images/cabShare.png') }}"
+                alt=""
+            />
+            </div>
+            <div class="cardTitle">Cab Sharing</div>
+        </div>
+      </a>
+      <div class="cards card2">
+        <div class="CardImageContainer">
+          <img
+            class="cardImage2"
+            src="{{ url_for('static', filename='images/drivers.png') }}"
+            alt=""
+          />
+        </div>
+        <div class="cardTitle">Driver Contacts</div>
+      </div>
+
+      <div class="cards card3">
+        <div class="CardImageContainer">
+          <img
+            class="cardImage3"
+            src="{{ url_for('static', filename='images/shuttle.png') }}"
+            alt=""
+          />
+        </div>
+        <div class="cardTitle">Shuttle Tracking</div>
+      </div>
+      <div class="cards card4">
+        <div class="CardImageContainer">
+          <img
+            class="cardImage4"
+            src="{{ url_for('static', filename='images/cycle.png') }}"
+            alt=""
+          />
+        </div>
+        <div class="cardTitle">Cycle Rental</div>
+      </div>
+    </div>
+  </body>
 </html>

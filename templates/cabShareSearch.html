@@ -5,8 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Share Cab</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styleCabSearch.css') }}"
+    />
   </head>
   <body>
+    <div class="empty"></div>
+    <div class="nav">
+      <div class="logoContainer">
+        <div class="navIconContainer">
+          <img
+            class="navIcon"
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt=""
+          />
+        </div>
+        <div class="navTitleContainer">
+          <div class="navTitle">VITRACK</div>
+        </div>
+      </div>
+      <div class="profileContainer">
+        <i class="fa-regular fa-user"></i>
+      </div>
+    </div>
     <div class="cardListContainer">
       <div class="searchBox">
         <form id="search" name="search" method="post">
