@@ -191,8 +191,7 @@ body::-webkit-scrollbar {
 
 
 .firstView{
-    /* background: url('./images/firstViewBG.jpg'); */
-    background: #aca90094;
+    background: url('./images/firstViewBG.jpg');
     width: 100vw;
     background-size: cover;
     height: 100vh;
@@ -200,10 +199,6 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-}
-.boxOne{
-    background: rgb(64, 64, 64);
-    margin: 40px;
 }
 .startText{
     color: white;
