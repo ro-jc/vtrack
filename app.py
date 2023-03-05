@@ -173,3 +173,7 @@ def profile():
     user_record = crs.execute(f"SELECT * FROM user WHERE userid={userid}")
 
     return render_template("profile.html", user_record=user_record)
+
+@app.route("/driverDetails")
+def driver_details():
+    return render_template("driverDetails.html")

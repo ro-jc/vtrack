@@ -227,6 +227,9 @@ select{
     align-items: center;
     border-radius: 50%;
 }
+a{
+    text-decoration: none;
+}
 .myRequests{
     height: 38vh;
     width: 100%;

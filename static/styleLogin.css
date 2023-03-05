@@ -119,7 +119,19 @@ input[type="submit"] {
     /* background: var(--navBG); */
     /* color: var(--light); */
 }
+a{
+    text-decoration: none;
+}
 
+.loginError{
+    position: absolute;
+    width: 100vw;
+    text-align: center;
+    bottom: 24vh;
+    color: rgb(119, 1, 1);
+    font-size: 2.2rem;
+
+}
 
 .navIconContainer {
     justify-content: center;
