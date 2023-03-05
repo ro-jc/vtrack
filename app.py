@@ -115,59 +115,62 @@ def logout():
 @login_required
 def cab_share():
     if request.method == "POST":
-        print(request.form)
+        database = db.get_db()
+        crs = database.cursor(dictionary=True)
 
         pickup_point = request.form["from"]
         drop_point = request.form["to"]
         date = request.form["date"]
-        if request.form["time"]:
-            date_time = datetime.strptime(
-                f"{date} {request.form['time']}", "%Y-%m-%d %H:%M"
-            )
 
-        gender_filter = request.form.get("genderFilter", "off") == "on"
-        num_people = request.form['numPeople']
-
-        vehicle_types = {"any": 0, "cab": 1, "auto": 2}
-        vehicle_type = vehicle_types.get(request.form["vehicleType"], 0)
-
-        database = db.get_db()
-        crs = database.cursor(dictionary=True)
-        print(f"SELECT * FROM trips WHERE "
-              + "resolved!=TRUE AND "
-              + (f"(vehicle={vehicle_type} OR vehicle=0) AND " if vehicle_type else "")
-              + (f"num_people={num_people} AND " if num_people else "")
-              + f"gender_filter={gender_filter} AND "
-              + f"pickup_point='{pickup_point}' AND "
-              + f"drop_point='{drop_point}' AND "
-              + f"trip_date='{date}'")
-        crs.execute(
-            f"SELECT * FROM trips WHERE "
-            + "resolved!=TRUE AND "
-
-            + (f"vehicle={vehicle_type} OR vehicle=0 AND " if vehicle_type else "")
-            + f"gender_filter={gender_filter} AND "
-            + f"pickup_point='{pickup_point}' AND "
-            + f"drop_point='{drop_point}' AND "
-            + f"trip_date='{date}'"
-        )
-
-        records = crs.fetchall()
-        for record in records:
-            record["datetime"] = datetime.strptime(
-                f"{record['trip_date']} {record['trip_time']}", "%Y-%m-%d %H:%M:%S"
-            )
-
-        if request.form["time"]:
-            records.sort(key=lambda record: abs(
-                record["datetime"] - date_time))
+        if 'create' in request.form:
+            # for field in ['time', 'vehicleType', 'numPeople']:
+            #     if field not in request.form:
+            #         break
+            # else:
+            #     crs.execute("INSERT INTO trips "
+            #                 "(trip_date, trip_time, pickup_point, drop_point, "
+            #                 "vehicle, num_people, gender_filter, user_1) VALUES "
+            #                 f"({date} {} {} {} {} {} {} {})")
+            pass
         else:
-            records.sort(key=lambda record: record["datetime"])
+            if request.form["time"]:
+                date_time = datetime.strptime(
+                    f"{date} {request.form['time']}", "%Y-%m-%d %H:%M"
+                )
 
-        for record in records:
-            record['trip_time'] = str(record['trip_time'])[:-3]
+            gender_filter = request.form.get("genderFilter", "off") == "on"
+            num_people = request.form['numPeople']
 
-        return render_template("cabShare.html", form=request.form, records=records, female=is_female())
+            vehicle_types = {"any": 0, "cab": 1, "auto": 2}
+            vehicle_type = vehicle_types.get(request.form["vehicleType"], 0)
+
+            crs.execute(
+                f"SELECT * FROM trips WHERE "
+                + "resolved!=TRUE AND "
+
+                + (f"vehicle={vehicle_type} OR vehicle=0 AND " if vehicle_type else "")
+                + f"gender_filter={gender_filter} AND "
+                + f"pickup_point='{pickup_point}' AND "
+                + f"drop_point='{drop_point}' AND "
+                + f"trip_date='{date}'"
+            )
+
+            records = crs.fetchall()
+            for record in records:
+                record["datetime"] = datetime.strptime(
+                    f"{record['trip_date']} {record['trip_time']}", "%Y-%m-%d %H:%M:%S"
+                )
+
+            if request.form["time"]:
+                records.sort(key=lambda record: abs(
+                    record["datetime"] - date_time))
+            else:
+                records.sort(key=lambda record: record["datetime"])
+
+            for record in records:
+                record['trip_time'] = str(record['trip_time'])[:-3]
+
+            return render_template("cabShare.html", form=request.form, records=records, female=is_female())
 
     database = db.get_db()
     crs = database.cursor(dictionary=True)
