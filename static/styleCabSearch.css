@@ -176,7 +176,8 @@ select{
     margin: 30px 0;
     width: 100%;
     color: aliceblue;
-    background: #ba545472 ;   
+    /* background: #ba545472 ;    */
+    background: #00000084;
     font-size: 6rem;
     display: flex;
     justify-content: center;
@@ -193,7 +194,8 @@ a{
 .myRequests{
     height: 38vh;
     width: 100%;
-    background: #ba545472;
+    background: #00000084;
+    /* background: #ba545472; */
     color: aliceblue;
     margin: 30px 0;
     display: flex;
