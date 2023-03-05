@@ -111,7 +111,7 @@ def logout():
     return redirect(url_for('landing'))
 
 
-@app.route("/cabShare", methods=("GET", "POST"))
+@app.route("/cabshare", methods=("GET", "POST"))
 @login_required
 def cab_share():
     if request.method == "POST":
