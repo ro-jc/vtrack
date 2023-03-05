@@ -226,3 +226,12 @@ a{
     display: flex;
     padding: 0 10px;
 }
+.createButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 3px;
+    padding: 10px;
+    margin-left: 50px;
+    border-radius: 20px;
+}
