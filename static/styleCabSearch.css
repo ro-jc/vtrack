@@ -10,9 +10,6 @@ body {
     /* height: 100vh; */
     overflow-y: hidden !important;
 }
-.searchBox form{
-    display: flex;
-}
 
 .nav {
     background: rgba(239, 150, 120, 0.48);
@@ -63,7 +60,7 @@ body {
     font-size: 2rem;
 }
 .empty {
-    height: 12vh;
+    height: 8.2vh;
 }
 
 .logoContainer {
@@ -71,4 +68,164 @@ body {
     flex: 9;
     justify-content: start;
     align-items: center;
+}
+
+/*
+.searchBox{
+    padding: 2vh 0;
+    background: rgba(239, 150, 120, 0.48);
+}
+
+.searchBox form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    height: 4.2vh;
+    font-size: 1.1rem;
+}
+form div{
+    padding: 0;
+    font-size: 1.1rem;
+}
+.searchIcon{
+    font-size: 1.9rem;
+}
+input{
+    height: 4.2vh;
+    font-size: 1.1rem;
+}
+label select{
+    width:12vw;
+    height: 4.2vh;
+    font-size: 1.1rem;
+}
+.fromTo{
+    display: flex;
+}
+.fromTo label select{
+    margin: 0 10px;
+}
+.date, .time, .vehicleType, .numPeople{
+    margin: 0 10px;
+} 
+.date input,
+.time input,
+.vehicleType  input,
+.numPeople  input{
+}
+*/
+
+.searchBox{
+    background: rgba(239, 150, 120, 0.48);
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* height: 60vh; */
+    /* margin: 0 20vw; */
+    padding: 2vh 0;
+}
+form, .fromTo{
+    /* height: 40vh; */
+    display: flex;
+    /* flex-direction: column;; */
+    justify-content: center;
+    align-items: center;
+}
+/* form div{
+    padding: 8px;
+} */
+.genderFilter label div{
+    font-size: 1.1rem;
+}
+/* .fromTo label select{
+    width: 8vw;
+    margin: 0 5px;
+} */
+/* .date input, .time input, .vehicleType input{
+    width: calc(16vw + 16px);
+} */
+.genderFilter label input{
+    /* width: calc(19vw +19px); */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    /* height: px; */
+
+}
+.searchButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 3px;
+    padding: 10px;
+    margin-left: 50px;
+    border-radius: 20px;
+}
+input, select{
+    width: 10vw;
+    height: 3.8vh;
+    margin: 0 12px;
+    font-size: 1.1rem;
+}
+select{
+    margin: 5px 12px;
+}
+.genderFilter label{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    align-items: center;
+    /* text-align: center; */
+}
+.genderFilter label div{
+    height: 3.8vh;
+}
+.genderFilter div input{
+    width: 2.5vw;
+}
+/* input[type="checkbox"]{
+    margin: 0;
+    text-align: left;
+} */
+.fem{
+    display: flex;
+    /* justify-content: end; */
+    align-items: center;
+    /* position: absolute; */
+    /* text-align: right; */
+}
+.myCards{
+    /* height: 400px; */
+    /* padding: 15px; */
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    justify-content: space-around;
+}
+.noRequests, .myRequests{
+    height: 54vh;
+    width: 100%;
+    background: #554848;
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:aliceblue;
+    font-size: 2.8rem;
+    text-align: center;
+    line-height: 4.6rem;
+}
+.myRequests{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.9rem;
+    line-height: normal;
+
+}
+.myCardDate{
+    font-size: 4rem;
+}
+
+.othersCards{
+    /* height: 800px; */
 }
