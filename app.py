@@ -116,16 +116,26 @@ def cab_share():
             )
 
         gender_filter = request.form.get("genderFilter", "off") == "on"
+        num_people = request.form['numPeople']
 
         vehicle_types = {"any": 0, "cab": 1, "auto": 2}
         vehicle_type = vehicle_types.get(request.form["vehicleType"], 0)
 
         database = db.get_db()
         crs = database.cursor(dictionary=True)
+        print(f"SELECT * FROM trips WHERE "
+              + "resolved!=TRUE AND "
+              + (f"(vehicle={vehicle_type} OR vehicle=0) AND " if vehicle_type else "")
+              + (f"num_people={num_people} AND " if num_people else "")
+              + f"gender_filter={gender_filter} AND "
+              + f"pickup_point='{pickup_point}' AND "
+              + f"drop_point='{drop_point}' AND "
+              + f"trip_date='{date}'")
         crs.execute(
             f"SELECT * FROM trips WHERE "
             + "resolved!=TRUE AND "
-            + (f"vehicle={vehicle_type}" if vehicle_type else "")
+
+            + (f"vehicle={vehicle_type} OR vehicle=0" if vehicle_type else "")
             + f"gender_filter={gender_filter} AND "
             + f"pickup_point='{pickup_point}' AND "
             + f"drop_point='{drop_point}' AND "
@@ -144,19 +154,23 @@ def cab_share():
         else:
             records.sort(key=lambda record: record["datetime"])
 
-        return render_template("cabShareList.html", records=records, female=is_female())
+        for record in records:
+            record['trip_time'] = str(record['trip_time'])[:-3]
+
+        return render_template("cabShare.html", form=request.form, records=records, female=is_female())
 
     database = db.get_db()
     crs = database.cursor(dictionary=True)
-    crs.execute('SELECT * FROM trips WHERE NOT resolved')
-    records = [record for record in crs]
 
-    pickup_points = set([record['pickup_point'].capitalize()
-                        for record in records])
-    drop_points = set([record['drop_point'].capitalize()
-                      for record in records])
+    userid = session['userid'][1:]
+    crs.execute(f"SELECT * FROM trips WHERE {userid} IN "
+                "(user_1, user_2, user_3, user_4, user_5, user_6, user_7, user_8) "
+                "AND NOT RESOLVED")
+    my_trips = crs.fetchall()
+    for trip in my_trips:
+        trip['trip_time'] = str(trip['trip_time'])[:-3]
 
-    return render_template('cabShareSearch.html', records=records,
+    return render_template('cabShare.html', records=my_trips,
                            locations=load(open('locations.dat', 'rb')), female=is_female())
 
 

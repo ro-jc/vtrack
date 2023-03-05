@@ -41,17 +41,21 @@
         <form id="search" name="search" method="post">
           <div class="fromTo">
             <label for="from"></label>
-              <input type="text" list="from_data" id="from" name="from" form="search" required></input>
+              <input type="text" list="from_data" id="from" name="from" form="search" value="{{ request.form['from'] }}" required></input>
             <label for="to"></label>
-              <input type="text" list="to_data" id="to" name="to" form="search" required></input>
+              <input type="text" list="to_data" id="to" name="to" form="search" value="{{ request.form['to'] }}" required></input>
           </div>
-          <div class="date"><input name="date" type="date" required /></div>
-          <div class="time"><input name="time" type="time" /></div>
+          <div class="date"><input name="date" type="date" value="{{ request.form['date'] }}" required /></div>
+          <div class="time"><input name="time" type="time" value="{{ request.form['time'] }}" /></div>
           <div class="vehicleType">
-            <input type="text" value="Any" name="vehicleType" />
+            <select name="vehicleType" form="search">
+              <option value="any">Any</option>
+              <option value="auto">Auto</option>
+              <option value="cab">Cab</option>
+            </select>
           </div>
           <div class="numPeople">
-            <input name="numPeople" type="number" min="2" max="8" />
+            <input name="numPeople" type="number" min="2" max="8" value="{{ request.form['numPeople'] }}" />
           </div>
           {% if female %}
           <div class="genderFilter">
@@ -63,6 +67,7 @@
                 type="checkbox"
                 id="genderFilter"
                 name="genderFilter"
+                value="{{ request.form['genderFilter'] }}"
                 form="search"/>
               </div>
             </label>
@@ -84,40 +89,45 @@
         </form>
       </div>
     </div>
-    <div class="allCards">
-      <div class="myCards">
-        <!-- <div class="noRequests">
-          No <br> Active <br> Trips
-        </div> -->
-        
+    <div class="myCards">
+      <!-- <div class="noRequests">
+        No <br> Active <br> Trips
+      </div> -->
+      {% for record in records %}
         <div class="myRequests">
-          <div class="myCardDate">23-04-25</div>
+          <div class="myCardDate">{{ record.trip_date }}</div>
           <div class="myCardFrom">
             <div>From:</div>
-            <div class="enterFrom">Bangalore</div>
+            <div class="enterFrom">{{ record.pickup_point }}</div>
           </div>          
           <div class="myCardTo">
             <div>To:</div>
-            <div class="enterTo">Katpadi</div>
-          </div>          
+            <div class="enterTo">{{ record.drop_point }}</div>
+          </div>
+          <div class="myCardTo">
+            <div>Time:</div>
+            <div class="enterTo">{{ record.trip_time }}</div>
+          </div>
           <div class="myCardNumPeople">
             <div>Members:</div>
-            <div class="enterMembers">6</div>
+            <div class="enterMembers">{{ record.num_people }}</div>
           </div>          
           <div class="myCardVehicle">
             <div>Vehicle:</div>
-            <div class="entervehicle">Cab</div>
+            {% if record.vehicle == 0 %}
+            <div class="enterVehicle">Any Vehicle</div>
+            {% elif record.vehicle == 1 %}
+            <div class="entervehicle">Auto</div>
+            {% else %}
+            <div class="entervehicle">Cab</div> 
+            {% endif %}
           </div>
         </div>
-        
-        <!-- <div class="addTripCard">
-          +
-        </div> -->
-      </div>
-      <hr>
-      <div class="otherCards">
-
-      </div>
+      {% endfor %}
+      
+      <!-- <div class="addTripCard">
+        +
+      </div> -->
     </div>
   </body>
 </html>
