@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300&display=swap');
+/* font-family: 'JetBrains Mono', monospace; */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Tilt Warp', cursive;
+    font-family: 'poppins', cursive;
+}
+body{
+    background: url('./images/loginBG.jpg');
+    background-size: cover;
 }
 
 a {
@@ -68,6 +75,29 @@ a {
     justify-content: start;
     align-items: center;
 }
+.empty{
+    height: 12vh;
+}
 .cardContainer{
-    
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    justify-content: center;
+    align-items: center;
+}
+.driverCard{
+    padding: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #00000084;
+    color: white;
+    margin: 15px;
+
+}
+.cardContainer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
 }
