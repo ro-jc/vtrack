@@ -191,7 +191,7 @@ body::-webkit-scrollbar {
 
 
 .firstView{
-    background: url('./images/firstViewBG.jpg');
+    /* background: url('./images/firstViewBG.jpg'); */
     width: 100vw;
     background-size: cover;
     height: 100vh;
