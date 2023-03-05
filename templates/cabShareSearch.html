@@ -9,6 +9,13 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styleCabSearch.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <div class="empty"></div>
@@ -35,15 +42,17 @@
           <div class="fromTo">
             <label for="from">
               <select id="from" name="from" form="search" required>
+                <option value="" disabled selected hidden>From</option>
                 {% for point in pickup_points %}
-                  <option value="{{ point }}">{{ point }}</option>
+                <option value="{{ point }}">{{ point }}</option>
                 {% endfor %}
               </select>
             </label>
             <label for="to">
               <select id="to" name="to" form="search" required>
+                <option value="" disabled selected hidden>To</option>
                 {% for point in drop_points %}
-                  <option value="{{ point }}">{{ point }}</option>
+                <option value="{{ point }}">{{ point }}</option>
                 {% endfor %}
               </select>
             </label>
@@ -53,14 +62,49 @@
           <div class="vehicleType">
             <input type="text" value="Any" name="vehicleType" />
           </div>
-          <div class="numPeople"><input name="numPeople" type="number" min="2" max="8" /></div>
+          <div class="numPeople">
+            <input name="numPeople" type="number" min="2" max="8" />
+          </div>
           {% if female %}
           <div class="genderFilter">
-            <label for="genderFilter">Female:<input type="checkbox" name="genderFilter" /></label>
+            <label for="genderFilter">
+              <div class="fem">
+                Female:
+              </div>
+              <div><input
+                type="checkbox"
+                id="genderFilter"
+                name="genderFilter"
+                form="search"/>
+              </div>
+            </label>
           </div>
           {% endif %}
-          <input type="submit" value="Submit">
+          <!-- <input type="submit" value="Submit"> -->
+          <button class="searchButton" type="submit" value="submit">
+            SEARCH <i class="searchIcon fa-solid fa-magnifying-glass"></i>
+          </button>
         </form>
+      </div>
+    </div>
+    <div class="allCards">
+      <div class="myCards">
+        <div class="noRequests">
+          No <br> Active <br> Trips
+        </div>
+        <div class="myRequests">
+          <div class="myCardDate">05-03-23</div>
+          <div class="myCardFrom">KPD railway - VIT</div>          
+          <div class="myCardTo"></div>          
+          <div class="myCardNumPeople">4 members</div>          
+          <!-- <div class="myCardVehicle">Cab</div> -->
+          <div class="vehicLogo"></div>
+        </div>
+        <div class="myRequests"></div>
+      </div>
+      <hr>
+      <div class="otherCards">
+
       </div>
     </div>
   </body>
