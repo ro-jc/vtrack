@@ -61,3 +61,10 @@ window.onscroll = function () {
     creator.style.bottom = "100px";
   }
 };
+
+var opacity = 1.0;
+window.onscroll = function () {
+  if (window.scrollY < wh1) {
+    opacity = 1 - window.scrollY * 0.01;
+  }
+}

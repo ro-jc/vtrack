@@ -188,12 +188,24 @@ body::-webkit-scrollbar {
     letter-spacing: 8px;
 }
 
-
+.content{
+    position: relative;
+    z-index:1;
+    overflow:hidden; /*if you want to crop the image*/
+}
+.content:before{
+    z-index:-1;
+    position:absolute;
+    left:0;
+    top:0;
+    content: url('../static/images/firstViewBG.jpg  ');
+    opacity:0.4;
+}
 
 .firstView{
-    background: url('./images/firstViewBG.jpg');
+    /* background: url('./images/firstViewBG.jpg'); */
     width: 100vw;
-    background-size: cover;
+    /* background-size: cover; */
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -212,26 +224,26 @@ body::-webkit-scrollbar {
     font-size: 2rem;
 }
 .secondView {
-    background: url('./images/sec1.png');
-    background-size: cover;
+    /* background: url('./images/sec1.png'); */
+    /* background-size: cover; */
     display: grid;
     grid-template-columns: 50% 50%;
 }
 .thirdView {
-    background: url('./images/sec2.png');
-    background-size: cover;
+    /* background: url('./images/sec2.png'); */
+    /* background-size: cover; */
     display: grid;
     grid-template-columns: 50% 50%;
 }
 .fourthView {
-    background: url('./images/sec3.png');
-    background-size: cover;
+    /* background: url('./images/sec3.png'); */
+    /* background-size: cover; */
     display: grid;
     grid-template-columns: 50% 50%;
 }
 .fifthView {
-    background: url('./images/sec4.png');
-    background-size: cover;
+    /* background: url('./images/sec4.png'); */
+    /* background-size: cover; */
     display: grid;
     grid-template-columns: 50% 50%;
 }

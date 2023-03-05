@@ -67,6 +67,7 @@
       </div>
 
     <div class="empty"></div>
+    <div class="content">
     <div id="one" class="full firstView">
       
       <div class="startText">
@@ -131,15 +132,15 @@
     {% endif %} -->
     </div>
     <div id="two" class="full secondView">
-        <div class="secImg">
-            <img class="cabShareImg" src="{{ url_for('static', filename='images/cabShare.png') }}" alt="">
+    <div class="secImg">
+        <img class="cabShareImg" src="{{ url_for('static', filename='images/cabShare.png') }}" alt="">
+    </div>
+    <div class="secTxt">
+        <div class="secTxtTitle">Cab Sharing</div>
+        <div class="secTxtDesc">
+            Tired of the endless messages on WhatsApp looking for a travel mate?  Look no further! VITrack connects you to the right people at the right time.
         </div>
-        <div class="secTxt">
-            <div class="secTxtTitle">Cab Sharing</div>
-            <div class="secTxtDesc">
-                Tired of the endless messages on WhatsApp looking for a travel mate?  Look no further! VITrack connects you to the right people at the right time.
-            </div>
-        </div>
+    </div>
     </div>
     <div id="three" class="full thirdView">
         <div class="secTxt">
@@ -173,6 +174,7 @@
         <div class="secImg">
             <img class="cycImg"  src="{{ url_for('static', filename='images/cycle.png') }}" alt="">
         </div>
+    </div>
     </div>
 
     <script src="{{ url_for('static', filename='index.js') }}"></script>
