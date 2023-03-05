@@ -2,7 +2,9 @@ from flask import Flask, flash, g, redirect, render_template, request, session, 
 from werkzeug.security import generate_password_hash, check_password_hash
 import functools
 
-from datetime import datetime, timedelta
+from datetime import datetime
+from pickle import load, dump
+
 
 import db
 
@@ -154,8 +156,8 @@ def cab_share():
     drop_points = set([record['drop_point'].capitalize()
                       for record in records])
 
-    return render_template('cabShareSearch.html', records=records, pickup_points=pickup_points,
-                           drop_points=drop_points, female=is_female())
+    return render_template('cabShareSearch.html', records=records,
+                           locations=load(open('locations.dat', 'rb')), female=is_female())
 
 
 @app.route("/profile", methods=("GET", "POST"))

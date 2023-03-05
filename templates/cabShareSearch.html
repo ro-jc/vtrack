@@ -40,22 +40,10 @@
       <div class="searchBox">
         <form id="search" name="search" method="post">
           <div class="fromTo">
-            <label for="from">
-              <select id="from" name="from" form="search" required>
-                <option value="" disabled selected hidden>From</option>
-                {% for point in pickup_points %}
-                <option value="{{ point }}">{{ point }}</option>
-                {% endfor %}
-              </select>
-            </label>
-            <label for="to">
-              <select id="to" name="to" form="search" required>
-                <option value="" disabled selected hidden>To</option>
-                {% for point in drop_points %}
-                <option value="{{ point }}">{{ point }}</option>
-                {% endfor %}
-              </select>
-            </label>
+            <label for="from"></label>
+              <input type="text" list="from_data" id="from" name="from" form="search" required></input>
+            <label for="to"></label>
+              <input type="text" list="to_data" id="to" name="to" form="search" required></input>
           </div>
           <div class="date"><input name="date" type="date" required /></div>
           <div class="time"><input name="time" type="time" /></div>
@@ -80,7 +68,16 @@
             </label>
           </div>
           {% endif %}
-          <!-- <input type="submit" value="Submit"> -->
+          <datalist id="from_data">
+            {% for location in locations %}
+              <option value="{{ location }}">{{ location }}</option>
+            {% endfor %}
+          </datalist>
+          <datalist id="to_data">
+            {% for location in locations %}
+              <option value="{{ location }}">{{ location }}</option>
+            {% endfor %}
+          </datalist>
           <button class="searchButton" type="submit" value="submit">
             SEARCH <i class="searchIcon fa-solid fa-magnifying-glass"></i>
           </button>
