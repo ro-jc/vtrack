@@ -146,12 +146,14 @@ def cab_share():
 
     database = db.get_db()
     crs = database.cursor(dictionary=True)
-    crs.execute('SELECT DISTINCT pickup_point FROM trips')
-    pickup_points = [i['pickup_point'].capitalize() for i in crs]
-    crs.execute('SELECT DISTINCT drop_point FROM trips')
-    drop_points = [i['drop_point'].capitalize() for i in crs]
-
-    return render_template('cabShareSearch.html', pickup_points=pickup_points,
+    crs.execute('SELECT * FROM trips')
+    records = [record for record in crs]
+    records.sort(key=lambda record: record)
+    
+    pickup_points = set([record['pickup_point'].capitalize() for record in records])
+    drop_points = set([record['drop_point'].capitalize() for record in records])
+    
+    return render_template('cabShareSearch.html', records=records, pickup_points=pickup_points,
                            drop_points=drop_points, female=is_female())
 
 
