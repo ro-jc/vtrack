@@ -111,7 +111,7 @@ def logout():
     return redirect(url_for('landing'))
 
 
-@app.route("/cabShare", methods=("GET", "POST"))
+@app.route("/cabshare", methods=("GET", "POST"))
 @login_required
 def cab_share():
     if request.method == "POST":
@@ -197,6 +197,11 @@ def profile():
     return render_template("profile.html", user_record=user_record)
 
 
-@app.route("/driverDetails")
+@app.route("/driverdetails")
 def driver_details():
-    return render_template("driverDetails.html")
+    database = db.get_db()
+    crs = database.cursor(dictionary=True)
+    crs.execute("SELECT * FROM drivers")
+    records = crs.fetchall()
+
+    return render_template("driverDetails.html", records=records)

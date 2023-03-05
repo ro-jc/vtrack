@@ -47,5 +47,5 @@ CREATE TABLE drivers (
     phone_number char(10),
     vehicle_type varchar(10),
     vehicle_model varchar(30),
-    registration_number varchar(10),
+    registration_number varchar(10)
 )

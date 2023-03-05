@@ -28,20 +28,21 @@
       </a>
       
       <div class="profileContainer">
-        <a href="{{ url_for('cab_share') }}">
+        <a href="{{ url_for('logout') }}">
           <i class="fa-regular fa-user"></i>
         </a>
       </div>
     </div>
     <div class="cardContainer">
-      <div class="driverCard">
-        <div class="name"></div>
-        <div class="phoneNo"></div>
-        <div class="vehicleType"></div>
-        <div class="vehicleModel"></div>
-        <div class="registrationNumber"></div>
-        
-      </div>
+      {% for record in records %}
+        <div class="driverCard">
+          <div class="name">{{ record.name }}</div>
+          <div class="phoneNo">{{ record.phone_number }}</div>
+          <div class="vehicleType">{{ record.vehicle_type }}</div>
+          <div class="vehicleModel">{{ record.vehicle_model }}</div>
+          <div class="registrationNumber">{{ record.registration_number }}</div>
+        </div>
+      {% endfor %}
     </div>
     
 </body>
